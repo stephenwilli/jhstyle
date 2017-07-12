@@ -14,6 +14,9 @@
     
     <link rel="icon" type="image/png" href="<?php echo(get_template_directory_uri()) ?>/favicon.ico" />
 
+    <script src="https://use.typekit.net/bjo7pmz.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
         
     <title><?php wp_title(' | ', true, 'right'); ?></title>
     

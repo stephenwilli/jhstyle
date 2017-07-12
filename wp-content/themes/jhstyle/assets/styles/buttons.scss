@@ -35,14 +35,14 @@
   }
 
   &.-orange {
-    background-color: $orange;
-    border: 2px $orange solid;
+    background-color: $primary;
+    border: 2px $primary solid;
     color: $white;
 
     &:hover {
 
       background-color: transparent;
-      color: $orange;
+      color: $primary;
       text-decoration: none;
     }
   }

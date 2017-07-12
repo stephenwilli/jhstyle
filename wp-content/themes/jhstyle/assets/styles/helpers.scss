@@ -7,21 +7,23 @@ $transition: all .4s ease-in;
 /* COLORS */
 $white: #FFF;
 $black: #000;
-$orange: #FAA21B;
 $grey: #808285;
+$primary: #28313f;
+$secondary: #ae9b7a;
 
 
 /* FONT FAMILIES */
 @mixin heading-font($weight: 700) {
-  font-family: 'Lora', serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-style: normal;
 }
 
 @mixin copy-font($weight: 400) {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: $weight;
 }
+
 
 
 /* SCREEN SIZE */

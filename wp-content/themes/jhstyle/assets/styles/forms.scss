@@ -13,7 +13,7 @@
   }
   
   input[type=submit] {
-    background-color: $orange;
+    background-color: $primary;
     display: inline-block;
     padding: 10px 50px;
     font-weight: 600;
@@ -23,7 +23,7 @@
     border-radius: 0;
     -webkit-border-radius: 0;
   -moz-border-radius: 0;
-    border: 2px $orange solid;
+    border: 2px $primary solid;
     @include transition($transition300);
     
     @include respond-to($screen-xs) { 
@@ -32,7 +32,7 @@
 
     &:hover {
       background-color: transparent;
-      color: $orange;
+      color: $primary;
       text-decoration: none;
     }
   }

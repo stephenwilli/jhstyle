@@ -41,7 +41,7 @@ hr.light {
 a {
 
   @include transition(all .2s ease-in);
-  color: $orange;
+  color: $primary;
 }
 
 a:hover,
@@ -122,7 +122,7 @@ img.alignright {
 }
 
 .bg-primary {
-  background-color: $orange;
+  background-color: $primary;
   p, h1, h2, h3 {
     color: #fff;
   }
