@@ -1,0 +1,110 @@
+{
+    "key": "group_5965941907794",
+    "title": "Category Settings",
+    "fields": [
+        {
+            "sub_fields": [
+                {
+                    "taxonomy": "category",
+                    "field_type": "select",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "return_format": "id",
+                    "add_term": 1,
+                    "load_terms": 0,
+                    "save_terms": 0,
+                    "key": "field_59659a637a5c8",
+                    "label": "Choose Category",
+                    "name": "to_choose_category",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "key": "field_59659a8d7a5c9",
+                    "label": "Category Feature Image",
+                    "name": "to_category_feature_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_59659aa67a5ca",
+                    "label": "Category Color",
+                    "name": "to_category_color",
+                    "type": "text",
+                    "instructions": "(Hex Value with # sign)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "collapsed": "",
+            "key": "field_596594227a5c6",
+            "label": "Category",
+            "name": "to_category",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-category-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1499831208
+}

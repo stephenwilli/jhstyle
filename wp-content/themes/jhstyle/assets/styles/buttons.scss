@@ -1,0 +1,69 @@
+.btn {
+  
+  background-color: $white;
+  display: inline-block;
+  padding: 10px 50px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: $grey;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border: 2px $grey solid;
+  @include transition($transition300);
+  @include respond-to($screen-xs) { 
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background-color: $grey;
+    color: $white;
+  }
+
+  &.-large {
+    width: 200px;
+
+    @include respond-to($screen-xs) { 
+      padding: 10px 0;
+    }
+    
+    @include respond-to($screen-xs) { 
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+
+  &.-orange {
+    background-color: $orange;
+    border: 2px $orange solid;
+    color: $white;
+
+    &:hover {
+
+      background-color: transparent;
+      color: $orange;
+      text-decoration: none;
+    }
+  }
+
+  &.-ghost {
+    color: $white;
+    border: 2px $white solid;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  &.-mini {
+    padding: 10px 20px;
+    font-size: .9rem;
+  }
+
+}
+
+
+
