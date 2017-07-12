@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.6
-Tested up to: 4.7
-Stable tag: 4.6
+Tested up to: 4.8
+Stable tag: 5.0.1
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
 
@@ -124,32 +124,46 @@ You'll find answers to many of your questions on [kb.yoast.com](https://kb.yoast
 
 == Changelog ==
 
-= 4.6.0 =
+= 5.0.1 =
 
-Release Date: April 11th, 2017
+Release Date: July 6th, 2017
 
-* Enhancements
-	* Improves a language string, props [Sören Wrede](https://github.com/Soean).
-	* Improves the configuration wizard with clear information about the configuration.
-	* Adds the ability to mark posts as cornerstone content.
+* Fixes a fatal error that could occur when trying to save a post that has `<a>`-tags with invalid URLs in it.
 
-* Bugfixes
-	* Fixes an issue in combination with WooCommerce 3.0 where the plugins would load incompatible select2 versions.
+= 5.0.0 =
 
-= 4.5.0 =
-
-Release Date: March 21st, 2017
-
-* Additions
-	* Adds a message about the PHP version for WordPress installations that run on PHP 5.2. The warning also has pointers on how to address this situation. [We have an article about why we are doing this on yoast.com](https://yoa.st/x6).
+Release Date: July 6th, 2017
 
 * Bugfixes
-	* Adds a check for the breadcrumbs-home option to prevent a blank entry being added to the crumbs array, props [codemonkeynorth](https://github.com/codemonkeynorth)
+	* Fixes a bug where images via `https` were not working, props [Jannik Zschiesche](https://github.com/apfelbox).
+	* Fixes a bug where the whip notification can be shown multiple times.
 
 * Enhancements
-	* Throws a warning in the admin for the RS Head Cleaner plugin, because the plugin cloaks.
-	* Improves copy about Yoast SEO Premium benefits.
-	* Adds link to our knowledge base article about connecting your website to Google Search Console.
+	* Introduces a module that counts links in the content.
+	* Adds Flesch Reading for Italian.
+	* Changes 'page title' to 'seo title' in the snippet preview.
+ 	* Changes recommended maximum sentence length for Italian from 20 to 25 words, based on more in-depth research.
+ 	* Implements the extracted version of the Algolia Search which is now present in `yoast-components`.
+ 	* Adds a banner for the structured data course.
+
+ * Under the hood
+ 	* Introduces a database table to keep track of the linking structure. If the table cannot be created, a notification will be shown.
+ 	* When there are posts or pages to reindex, a notice will be shown.
+
+= 4.9.0 =
+
+Release Date: June 7th, 2017
+
+* Bugfixes
+	* Fixes a bug where there were certain assessments missing when switching to cornerstone content.
+	* Fixes a bug where the configuration wizard button was visible for users who didn't have enough rights to access the configuration wizard.
+	* Fixes a bug where the column `ID` was ambiguous, causing an SQL error.
+	* Fixes a bug where the category URL in the sitemap was encoded twice.
+	* Fixes a bug where an old upgrade notice is not removed.
+
+* Enhancements
+	* Removes the noodp advanced robots meta value as it is no longer used.
+	* Loads the translations only when the configuration wizard endpoint is called, instead of every time `rest_api_init` is called.
 
 = Earlier versions =
 
