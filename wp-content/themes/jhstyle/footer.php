@@ -1,7 +1,7 @@
 	<footer class="bg-primary">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-md-4">
 					<div class="footer-widget">
 						<?php 
 			                $phone = get_field('phone_number', 'option');
@@ -9,23 +9,27 @@
 			                $address = get_field('address', 'option');		
 			            ?>
 			            
-							<img class="logo" src="<?php get_bloginfo('template_url') ?>/wp-content/uploads/2017/02/tmw-logo-01.svg" />
+							<img class="logo" src="<?php get_bloginfo('template_url') ?>/wp-content/uploads/2017/07/jhstyle-logo-01.png" />
 						
 						
 						<p>
 							<?php if ($phone) { ?>
-								<a href="tel:1-<?php echo $phone; ?>"><?php echo $phone; ?></a><br> 
+								<i class="fa fa-fw fa-phone"></i> <a href="tel:1-<?php echo $phone; ?>"><?php echo $phone; ?></a><br> 
 							<?php } ?>
 
 							<?php if ($email) { ?>
-								<?php echo $email; ?></a><br> 
+								<i class="fa fa-fw fa-envelope"></i> <?php echo $email; ?></a><br> 
 							<?php } ?>
 
 							<?php if ($address) { ?>
-								<?php echo $address; ?>
+								<i class="fa fa-fw fa-map-marker"></i> <?php echo $address; ?>
 							<?php } ?>
 						</p>
 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="footer-widget text-center">
 						<ul class="social-icons">
             
 				            <?php
@@ -47,22 +51,16 @@
 				            <?php } ?>
 
           				</ul>
-
+          				<a href="" class="btn -ghost">Download Our Media Kit</a>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-md-4">
 					<div class="footer-widget">
-						<?php dynamic_sidebar( 'footer-column-1' ); ?>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="footer-widget">
-						<?php dynamic_sidebar( 'footer-column-2' ); ?>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="footer-widget">
-						<?php dynamic_sidebar( 'footer-column-3' ); ?>
+						<?php
+							if(is_active_sidebar('footer-column-1')){
+							dynamic_sidebar('footer-column-1');
+							}
+						?>
 					</div>
 				</div>
 				
