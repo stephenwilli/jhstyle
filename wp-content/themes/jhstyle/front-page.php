@@ -8,7 +8,23 @@
 
 <!-- FLEXIBLE CONTENT TEMPLATES -->
 
-<?php get_template_part('partials/content/flex-templates'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-5">
+			<?php get_template_part('partials/home/issues-slider'); ?>
+		</div>
+			<div class="col-sm-7"><?php get_template_part('partials/home/socia-gridl'); ?>
+		</div>
+	</div>
+</div>
 
+
+<?php get_template_part('partials/home/featured'); ?>
+
+<?php get_template_part('partials/content/media-kit'); ?>
+
+<?php get_template_part('partials/content/story-grid'); ?>
+
+<?php get_template_part('partials/content/advertiser-slider'); ?>
 
 <?php get_footer();?>
