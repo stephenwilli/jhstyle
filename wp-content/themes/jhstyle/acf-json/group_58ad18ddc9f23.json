@@ -73,7 +73,6 @@
                     "layout": "horizontal",
                     "choices": {
                         "left": "Left",
-                        "center": "Center",
                         "right": "Right"
                     },
                     "default_value": "left",
@@ -247,5 +246,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1499834376
+    "modified": 1500437096
 }
