@@ -1,13 +1,10 @@
-<div id="preloader" class="spin">
+<div id="preloader" >
 	<div class="container">
         <div class="row">
+            <div class="loader ">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-            	<div class="gear-wrap">
-
-	                <img class="gear gear-01" src="<?php bloginfo( 'template_url' ); ?>/assets/images/single-gear.svg" />
-	                <img class="gear gear-02" src="<?php bloginfo( 'template_url' ); ?>/assets/images/single-gear-02.svg" />
-
-                </div>
+            <img class="verticalcenter" src="<?php get_bloginfo('template_url') ?>/wp-content/uploads/2017/07/jhstyle-logo-01.png">
+            </div>
             </div>
         </div>
     </div>
