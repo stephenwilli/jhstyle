@@ -141,3 +141,10 @@ Transform
   -o-transform: $transform-props;
   transform: $transform-props;
 }
+
+.verticalcenter {
+  top: 50%;
+
+  @include transform(translate(0,50%));
+
+}

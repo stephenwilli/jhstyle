@@ -26,8 +26,8 @@
           pauseOnHover: true,
           directionNav: false, //Boolean: Create navigation for previous/next navigation? (true/false)
           controlNav: false, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-          prevText: "",
-          nextText: ""
+          prevText: "previous",
+          nextText: "next"
     });
 
   // PUBLICATION SLIDER
@@ -57,7 +57,7 @@
   // PRELOADER
 
 	$(window).load(function(){
-		$('#preloader').fadeOut('slow',function(){$(this).remove();});
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
 	});
 
   // ISOTOPE GRID
