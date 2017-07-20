@@ -27,14 +27,14 @@
           <?php if ( $title ) { ?>
             <div class="hero-caption caption-<?php echo $slideAlign; ?>">
               
-                <h2><mark><?php echo $title; ?></mark></h2>
+                <h2><?php echo $title; ?></h2>
               
                 <?php if ( $subTitle ) { ?>
                   <p><?php echo $subTitle; ?></p>
                 <?php } ?>
 
                 <?php if ( $buttonText ) { ?>
-                  <a href="<?php echo $slideLink; ?>" class="btn -orange"><?php echo $buttonText; ?></a>
+                  <a href="<?php echo $slideLink; ?>" class="btn -ghost"><?php echo $buttonText; ?></a>
                 <?php } ?>
 
             </div><!-- /caption -->

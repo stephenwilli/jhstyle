@@ -1,30 +1,38 @@
 .flexslider {
   margin-bottom: 0;
   border: none;
+  border-radius: inherit;
 
   .hero-caption {
     position: absolute;
     z-index: 10;
-    width: 65%;
+    width: 75%;
+    background-color: rgba(174, 155, 122, .8);
+    padding-top: 20px;
+    padding-bottom: 20px;
     
  
     &.caption-left {
       text-align: left; 
-      left: 10%;
-      bottom: 10%;
+      left: 0%;
+      bottom: -5%;
+      padding-left: 10%;
+      padding-right: 20px;
+
     }
 
     &.caption-right {
       text-align: right;
-      right: 10%;
-      bottom: 10%;
+      right: 0%;
+      bottom: -5%;
+      padding-left: 20px;
+      padding-right: 10%;
     }
 
     &.caption-center {
-      top: 70%;
+      bottom: -5%;
       transform: translateY(-50%);
       width: 100%;
-      padding: 0 300px;
       text-align: center;
       
       @include respond-to($screen-sm){
@@ -39,8 +47,7 @@
 
     p {
       color: $white;
-      max-width: 500px;
-      margin: 0 auto 0 auto;
+      margin-bottom: 5px;
       font-size: 1.2rem;
     }
   
@@ -132,21 +139,21 @@
     a {
       height: 55px;
       color: rgba(255,255,255, 0.8);
-      // &:hover {
-      //   color: ;
-      // }
+      &:hover {
+        color: #fff;
+      }
 
-      // &.flex-prev:before{
-      //   font-family: "font-awesome";
-      //   font-size: 3rem;
-      //   content: "\f105";
-      // }
+      &.flex-prev:before{
+        font-family: "font-awesome";
+        font-size: 3rem;
+        content: "\f105";
+      }
 
-      // &.flex-next:before{
-      //   font-size: 3rem;
-      //   font-family: "tmbricons";
-      //   content: "\EA04";
-      // }
+      &.flex-next:before{
+        font-size: 3rem;
+        font-family: "tmbricons";
+        content: "\EA04";
+      }
     }
 
     @include respond-to($screen-sm){

@@ -16,22 +16,28 @@
 }
 
 .navbar-brand {
-    background-image: url('/wp-content/uploads/2017/02/tmw-logo-01.svg');
+    background-image: url('/wp-content/uploads/2017/07/jhstyle-logo-01.png');
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
+    opactiy: 1;
     left: 20px;
-    width: 300px;
+    width: 190px;
     height: 100%;
-    margin-left: 0;
+    margin-left: 0 !important;
     margin-top: 15px;
+    @include transition(all .5s ease-in);
 
+    &:hover {
+      opacity: .6;
+    }
+ 
     @include respond-to($screen-sm) {
       width: 200px;
     }
 
     @include respond-to($screen-xs) {   
-      background-image: url('/wp-content/uploads/2017/03/tmw-logo-color-01.svg');
+      background-image: url('/wp-content/uploads/2017/07/jhstyle-01.png');
       width: 180px;
     }
 
@@ -59,7 +65,7 @@
     content:"";
     position: relative;
     display: inline-block;
-    background-color: $primary;
+    background-color: $secondary;
     opacity: 0;
     width: 10%;
     height: 2px;
@@ -68,7 +74,7 @@
   }
 
   @include respond-to($screen-xs) {   
-    color: $primary;
+    color: $secondary;
     font-size: 1.4rem;
     margin-bottom: 20px;
 
@@ -133,7 +139,7 @@
 
     .nav > li > a,
     .nav > li > a:focus {
-      color: $grey;
+      color: $primary;
     }
 
   }
@@ -145,6 +151,7 @@
   position: absolute;
   right: 35px;
   top: 37px;
+  @include transition(all .5s ease-in);
 
   @include respond-to($screen-sm) {   
     display: none;
@@ -166,33 +173,30 @@
       @include transition(all .5s ease-in);
 
       &:hover {
-        color: $grey;
+        color: $secondary;
       }
 
       @include respond-to($screen-sm) {   
-       color: $grey;
+       color: $primary;
       } 
-
     }
   }
-
 }
 
 .collapsed {
   
   .navbar-brand{
-    background-image: url('/wp-content/uploads/2017/03/tmw-logo-color-01.svg');
-    width: 180px;
+    background-image: url('/wp-content/uploads/2017/07/jhstyle-01.png');
+    width: 120px;
   }
-
-
 }
 
 .scrolled {
   
   .navbar-brand{
-    background-image: url('/wp-content/uploads/2017/03/tmw-logo-color-01.svg');
-    width: 180px;
+    background-image: url('/wp-content/uploads/2017/07/jhstyle-01.png');
+    margin-top: 5px;
+    width: 120px;
   }
 
   .navbar-right {
@@ -205,15 +209,13 @@
     li {
       
       a {
-        color: $grey;
+        color: $primary;
 
         &:hover {
           color: $grey;
         }
-
       }
     }
-
   }
 } 
 
