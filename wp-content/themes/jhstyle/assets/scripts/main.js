@@ -30,6 +30,18 @@
           nextText: "next"
     });
 
+    $('#issue-slider').flexslider({
+      animation: "fade",
+      slideshow: true, // auto play on load
+      slideshowSpeed: 5000,
+          animationSpeed: 800,
+          pauseOnHover: true,
+          directionNav: false, //Boolean: Create navigation for previous/next navigation? (true/false)
+          controlNav: false, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+          prevText: "previous",
+          nextText: "next"
+    });
+
   // PUBLICATION SLIDER
 
   $('#js-image-carousel').flexslider({
