@@ -7,16 +7,17 @@
 <?php get_template_part('partials/content/hero'); ?>
 
 <!-- FLEXIBLE CONTENT TEMPLATES -->
-
-<div class="container">
-	<div class="row">
-		<div class="col-sm-5">
-			<?php get_template_part('partials/home/issues-slider'); ?>
-		</div>
-			<div class="col-sm-7"><?php get_template_part('partials/home/socia-gridl'); ?>
+<section class="normal-pad">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5">
+				<?php get_template_part('partials/home/issues-slider'); ?>
+			</div>
+				<div class="col-sm-7"><?php get_template_part('partials/home/socia-gridl'); ?>
+			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 
 <?php get_template_part('partials/home/featured'); ?>
