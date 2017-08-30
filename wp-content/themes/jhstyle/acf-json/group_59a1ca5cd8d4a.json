@@ -1,0 +1,47 @@
+{
+    "key": "group_59a1ca5cd8d4a",
+    "title": "Post Settings",
+    "fields": [
+        {
+            "layout": "vertical",
+            "choices": {
+                "featured": "Featured"
+            },
+            "default_value": [],
+            "allow_custom": 0,
+            "save_custom": 0,
+            "toggle": 0,
+            "return_format": "value",
+            "key": "field_59a1ca62cde2c",
+            "label": "Featured Post",
+            "name": "ps_featured_post",
+            "type": "checkbox",
+            "instructions": "Checking this shows the post in the Featured Section of the Homepage",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1503775402
+}
