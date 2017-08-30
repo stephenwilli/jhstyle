@@ -13,7 +13,8 @@
 			<div class="col-sm-5">
 				<?php get_template_part('partials/home/issues-slider'); ?>
 			</div>
-				<div class="col-sm-7"><?php get_template_part('partials/home/socia-gridl'); ?>
+			<div class="col-sm-7">
+				<?php get_template_part('partials/home/social-grid'); ?>
 			</div>
 		</div>
 	</div>

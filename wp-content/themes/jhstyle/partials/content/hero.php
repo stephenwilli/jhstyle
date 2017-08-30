@@ -27,7 +27,7 @@
           <?php if ( $title ) { ?>
             <div class="hero-caption caption-<?php echo $slideAlign; ?>">
               
-                <h2><?php echo $title; ?></h2>
+                <h1><?php echo $title; ?></h1>
               
                 <?php if ( $subTitle ) { ?>
                   <p><?php echo $subTitle; ?></p>

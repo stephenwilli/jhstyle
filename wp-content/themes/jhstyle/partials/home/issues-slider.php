@@ -7,6 +7,7 @@
 ?>
 
 <div class="issue-wrapper">
+    <h2 class="center">E-Editions</h2>
     <div id="issue-slider" class="flexslider">
         <ul class="slides">
         <?php
@@ -22,6 +23,7 @@
                         <div class="overlay"></div>
                         <div class="caption">
                             <h2><?php echo the_title(); ?></h2>
+                            <a href="<?php the_permalink(); ?>" class="btn -ghost">View Now</a>
                         </div><!-- /caption -->
 
                     </a>
