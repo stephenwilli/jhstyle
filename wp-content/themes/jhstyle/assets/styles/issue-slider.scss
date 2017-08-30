@@ -3,7 +3,10 @@
   margin-top: 0;
   width: 100%;
   overflow: hidden;
-  // height: 967px;
+  
+  h2 {
+    color: $white;
+  }
 
   @include respond-to($screen-sm){
     height: 60vh;
@@ -50,9 +53,21 @@
 
   .caption {
     position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 0);
+    z-index: 10;
+    width: 85%;
+    background-color: rgba(40, 49, 63, .8);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left; 
+    left: 0%;
+    bottom: 10%;
+    padding-left: 10%;
+    padding-right: 20px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
   }
   
 

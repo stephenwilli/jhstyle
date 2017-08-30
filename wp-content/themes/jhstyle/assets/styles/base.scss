@@ -48,7 +48,11 @@ a:hover,
 a:focus,
 a:active {
   color: $grey;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 h1, h2, h3 {
@@ -75,6 +79,7 @@ h2,
 .h2 {
   font-size: 2.5rem; 
   line-height: 3rem;
+  color: $secondary;
 }
 
 h3,
@@ -82,6 +87,7 @@ h3,
   font-size: 2rem; 
   line-height: 2rem;
   font-weight: bold;
+  color: $primary;
 }
 
 h4,
@@ -136,7 +142,7 @@ img.alignright {
   a:focus,
   a:active {
     color: $white;
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -155,6 +161,9 @@ img.alignright {
   padding: 60px 0;
 }
 
+.center {
+  text-align: center;
+}
 
 ::-moz-selection {
   color: white;
@@ -177,4 +186,48 @@ img::-moz-selection {
   color: white;
   background: transparent;
 }
+
+h3 {
+
+    &.features{
+      color: $features;
+    }
+    
+    &.inspire {
+      color: $inspire;
+    }
+    
+    &.highstyle-profile {
+      color: $highstyle-profile;
+    }
+
+    &.basecamp {
+     color: $basecamp;
+    }
+
+    &.teton-village {
+      color:$teton-village;
+    }
+
+    &.healthy-living {
+      color: $healthy-living;
+    }
+
+    &.dining {
+      color:$dining;
+    }
+
+    &.nightlife {
+      color: $nightlife;
+    }
+
+    &.teton-valley {
+      color: $teton-valley;
+    }
+
+    &.catalogue {
+      color: $catalogue;
+    }
+
+  }
 
