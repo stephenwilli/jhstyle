@@ -232,9 +232,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page",
                 "operator": "==",
-                "value": "page"
+                "value": "292"
             }
         ]
     ],
@@ -246,5 +246,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1500437096
+    "modified": 1504478964
 }

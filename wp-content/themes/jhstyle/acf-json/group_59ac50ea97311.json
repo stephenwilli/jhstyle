@@ -1,21 +1,17 @@
 {
-    "key": "group_59a1ca5cd8d4a",
-    "title": "Post Settings",
+    "key": "group_59ac50ea97311",
+    "title": "E-Editions",
     "fields": [
         {
-            "post_type": [
-                "e-edition"
-            ],
-            "taxonomy": [],
-            "min": "",
-            "max": "",
-            "filters": "",
-            "elements": "",
-            "return_format": "object",
-            "key": "field_59ac44cb3bcd9",
-            "label": "Attach to Issue",
-            "name": "attach_to_issue",
-            "type": "relationship",
+            "default_value": "",
+            "new_lines": "wpautop",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": "",
+            "key": "field_59ac50f43b628",
+            "label": "Issue Embed Code",
+            "name": "issue_embed_code",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -31,17 +27,17 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "e-edition"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1504462363
+    "modified": 1504465172
 }
