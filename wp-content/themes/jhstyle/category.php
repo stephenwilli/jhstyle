@@ -4,9 +4,6 @@
 
 get_header(); 
 
-//$headerImage = ;
-//$categorySlug = ;
-
 if ( have_posts() ) :
 
 $obj = get_queried_object();
@@ -34,7 +31,7 @@ $categoryImage = get_field('category_featured_image', $obj);
                 
                     <?php
                         $image_id = get_post_thumbnail_id();
-                        list( $url, $width, $height ) = wp_get_attachment_image_src( $image_id, 'large' );
+                        list( $url, $width, $height ) = wp_get_attachment_image_src( $image_id, 'lg_thumb' );
                         $categories = get_the_category(); 
 
                         foreach ($categories as $category) {
@@ -61,7 +58,6 @@ $categoryImage = get_field('category_featured_image', $obj);
                             <h3 class="<?php echo $categorySlug;?>"><?php the_title();?></h3>
                         </a>
                         <p><?php the_excerpt(); ?></p>
-                        <a href="<?php echo get_permalink(); ?>">Read More</a>
                     </div>
 
                 <?php endwhile; endif; ?>

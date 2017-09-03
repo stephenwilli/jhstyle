@@ -1,5 +1,12 @@
 <?php
 
+  /*  Excerpt ending
+  /* ------------------------------------ */
+  function alx_excerpt_more( $more ) {
+      return '<br><a class="read-more" href="'. get_permalink() .'"> Read More &rsaquo;</a>';
+  }
+  add_filter( 'excerpt_more', 'alx_excerpt_more' );
+
   /* DUMP'N DIE
   /------------------------*/
   function d($var) {

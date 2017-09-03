@@ -16,54 +16,43 @@
 	    	$tetonValleyImage = get_field('teton_valley_home_image', 'option');
 
 	    	?>
-
-	    	<div class="col-sm-4">
-                        
-                            <div class="post-image">
-                            <a href="<?php echo get_permalink(); ?>">
-                                    <div class="overlay">
-                                        <a href="<?php echo get_permalink(); ?>" class="overlay-btn btn -ghost">Read More</a>
-                                    </div>
-                                    <img src="<?php echo $url; ?>" />
-                            </a>
-                            </div>
-                        
-                        
-                        <a class="category-bar" href="/stories/<?php echo $categorySlug;?>"><?php echo $categoryName;?></a>
-                        <a href="<?php echo get_permalink(); ?>">
-                            <h3 class="<?php echo $categorySlug;?>"><?php the_title();?></h3>
-                        </a>
 	        
-	    	<div class="row row-eq-height">
-	    		
-	    		<div class="col-sm-4">
-		    		<div class="features grid-card">
-		    		<div class="overlay"></div>
-		    			<img src="<?php echo $featuresImage['sizes']['large'];?>" />
-		    			<a class="category-bar" href=""></a>
+	    	<div class="row">
+	    		<div class="uneven">
+		    		<div class="col-sm-4">
+			    		<div class="features grid-card" style="background-image:url('<?php echo $featuresImage['sizes']['large'];?>');">
+			    		<div class="overlay"></div>
+			    			<a href="/stories/features"><h3 class="category-bar">Features</h3></a>
+			    		</div>
 		    		</div>
-	    		</div>
 
-	    		<div class="col-sm-8">
-	    			<div class="row">
-	    				<div class="col-sm-6">
-	    					<div class="highstyle-profile grid-card">
-	    						<img src="<?php echo $highstyleProfileImage['sizes']['large'];?>" />
-	    					</div>
-	    				</div>
-	    				<div class="col-sm-6">
-	    					<div class="inspire grid-card">
-	    						<img src="<?php echo $inspireImage['sizes']['large'];?>" />
-	    					</div>
-	    				</div>
-	    			</div>
-	    			<div class="row">
-	    				<div class="col-sm-12">
-	    					<div class="basecamp grid-card">
-	    						<img src="<?php echo $basecampImage['sizes']['large'];?>" />
-	    					</div>
-	    				</div>
-	    			</div>
+		    		<div class="col-sm-8">
+		    			<div class="row">
+		    				<div class="col-sm-6">
+		    					<div class="highstyle-profile grid-card">
+		    						<img src="<?php echo $highstyleProfileImage['sizes']['large'];?>" />
+		    						<div class="overlay"></div>
+			    					<a href="/stories/highstyle-profile/"><h3 class="category-bar">Highstyle Profile</h3></a>
+		    					</div>
+		    				</div>
+		    				<div class="col-sm-6">
+		    					<div class="inspire grid-card">
+		    						<img src="<?php echo $inspireImage['sizes']['large'];?>" />
+		    						<div class="overlay"></div>
+			    					<a href="/stories/inspire"><h3 class="category-bar">Inspire</h3></a>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="row">
+		    				<div class="col-sm-12">
+		    					<div class="basecamp grid-card">
+		    						<a href="/stories/basecamp"><img src="<?php echo $basecampImage['sizes']['large'];?>" />
+		    						<div class="overlay"></div>
+			    					<h3 class="category-bar">Basecamp</h3></a>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
 	    		</div>
 
 	    	</div>
@@ -71,17 +60,23 @@
 	    	<div class="row">
 	    		<div class="col-sm-4">
 	    			<div class="teton-village grid-card">
-	    				<img src="<?php echo $tetonVillageImage['sizes']['large'];?>" />
+	    				<img src="<?php echo $tetonVillageImage['sizes']['lg_thumb'];?>" />
+	    				<div class="overlay"></div>
+			    		<a href="/stories/teton-village"><h3 class="category-bar">Teton Village</h3></a>
 	    			</div>
 	    		</div>
 	    		<div class="col-sm-4">
 	    			<div class="healthy-living grid-card">
-	    				<img src="<?php echo $healthyLivingImage['sizes']['large'];?>" />
+	    				<img src="<?php echo $healthyLivingImage['sizes']['lg_thumb'];?>" />
+	    				<div class="overlay"></div>
+			    		<a href="/stories/healthy-living"><h3 class="category-bar">Healthy Living</h3></a>
 	    			</div>
 	    		</div>
 	    		<div class="col-sm-4">
 	    			<div class="dining grid-card">
-	    				<img src="<?php echo $diningImage['sizes']['large'];?>" />
+	    				<img src="<?php echo $diningImage['sizes']['lg_thumb'];?>" />
+	    				<div class="overlay"></div>
+			    		<a href="/stories/dining"><h3 class="category-bar">Dining</h3></a>
 	    			</div>
 	    		</div>
 	    	</div>
@@ -89,12 +84,16 @@
 	    	<div class="row">
 	    	    <div class="col-sm-6">
 	    	    	<div class="nightlife grid-card">
-	    	    		<img src="<?php echo $nightlifeImage['sizes']['large'];?>" />
+	    	    		<img src="<?php echo $nightlifeImage['sizes']['lg_thumb'];?>" />
+	    	    		<div class="overlay"></div>
+			    		<a href="/stories/nightlife"><h3 class="category-bar">Nightlife</h3></a>
 	    	    	</div>
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<div class="teton-valley grid-card">
-	    				<img src="<?php echo $tetonValleyImage['sizes']['large'];?>" />
+	    				<img src="<?php echo $tetonValleyImage['sizes']['lg_thumb'];?>" />
+	    				<div class="overlay"></div>
+			    		<a href="/stories/teton-valley"><h3 class="category-bar">Teton Valley</h3></a>
 	    			</div>    		
 	    		</div>
 	    	</div>

@@ -1,12 +1,17 @@
 <div class="container normal-pad">
+    <?php 
+    global $post;
+    $post_slug=$post->post_name;
+    ?>
     <div class="row">
-    <h2 class="center">Featured Stories</h2>
+    <h2 class="center">Stories from this Edition</h2>
         <?php 
 
             $posts = get_posts(array(
                 'posts_per_page'    => 3,
                 'post_type'         => 'post',
-                'tag'               => 'featured',
+                'tag'               => $post_slug
+
             ));
 
             if( $posts ): ?>
@@ -27,17 +32,13 @@
                 ?>
                 <div class="post-card <?php echo $categorySlug;?>">
                     <div class="col-sm-4">
-                        
                             <div class="post-image">
-                                    
-                                    <a class="block-link" href="<?php echo get_permalink(); ?>">
-                                        <div class="overlay">
-                                            <a href="<?php echo get_permalink(); ?>" class="overlay-btn btn -ghost">Read More</a>
-                                        </div>
-                                    </a>
-                                    
+                            <a href="<?php echo get_permalink(); ?>">
+                                    <div class="overlay">
+                                        <a href="<?php echo get_permalink(); ?>" class="overlay-btn btn -ghost">Read More</a>
+                                    </div>
                                     <img src="<?php echo $url; ?>" />
-                                    
+                            </a>
                             </div>
                         
                         

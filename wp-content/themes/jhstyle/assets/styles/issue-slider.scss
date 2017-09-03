@@ -4,9 +4,7 @@
   width: 100%;
   overflow: hidden;
   
-  h2 {
-    color: $white;
-  }
+
 
   @include respond-to($screen-sm){
     height: 60vh;
@@ -25,6 +23,10 @@
         @include respond-to($screen-sm){
           height: 60vh;
         }
+      
+      h2 {
+        color: $white;
+      }
   }
 
   .issue-cover {

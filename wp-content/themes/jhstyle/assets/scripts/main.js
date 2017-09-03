@@ -16,6 +16,8 @@
 
 	}); // window.scroll
 
+  $('p:empty').remove();
+
   // HERO SLIDER
       
     $('#hero-slider').flexslider({
@@ -24,8 +26,8 @@
       slideshowSpeed: 5000,
           animationSpeed: 800,
           pauseOnHover: true,
-          directionNav: false, //Boolean: Create navigation for previous/next navigation? (true/false)
-          controlNav: false, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+          directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
+          controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
           prevText: "previous",
           nextText: "next"
     });
@@ -36,7 +38,7 @@
       slideshowSpeed: 5000,
           animationSpeed: 800,
           pauseOnHover: true,
-          directionNav: false, //Boolean: Create navigation for previous/next navigation? (true/false)
+          directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
           controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
           prevText: "previous",
           nextText: "next"
