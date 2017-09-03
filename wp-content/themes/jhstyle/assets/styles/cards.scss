@@ -109,7 +109,7 @@
     }
     .overlay {
       background-color: rgba($healthy-living, .5);
-    };
+    }
   }
 
   &.dining {
@@ -148,5 +148,8 @@
     }
   }
 
+}
 
+.grid-card {
+  margin-bottom: 30px;
 }
