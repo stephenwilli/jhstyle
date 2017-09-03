@@ -42,29 +42,15 @@
           nextText: "next"
     });
 
-  // PUBLICATION SLIDER
 
-  $('#js-image-carousel').flexslider({
+    $('#advertiser-slider').flexslider({
       animation: "slide",
-      controlNav: false,
       animationLoop: false,
-      slideshow: false,
-      itemWidth: 215,
-      itemMargin: 10,
-      asNavFor: '#js-image-slider',
-      prevText: "",
-      nextText: ""
+      itemWidth: 300,
+      itemMargin: 5
     });
-   
-    $('#js-image-slider').flexslider({
-      animation: "slide",
-      controlNav: false,
-      animationLoop: false,
-      slideshow: false,
-      sync: "#js-image-carousel",
-      prevText: "",
-      nextText: ""
-    });
+
+
 
   // PRELOADER
 
@@ -111,28 +97,5 @@
     });
   });
 
-  // JQUERY COUNT UP
-
-  $('.counter').each(function() {
-    var $this = $(this),
-        countTo = $this.attr('data-count');
-    
-    $({ countNum: $this.text()}).animate({
-      countNum: countTo
-    },
-
-    {
-      duration: 4000,
-      easing:'linear',
-      step: function() {
-        $this.text(Math.floor(this.countNum));
-      },
-      complete: function() {
-        $this.text(this.countNum);
-      }
-
-    });  
-
-  });
 
 })(jQuery);
