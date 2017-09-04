@@ -27,6 +27,8 @@ if( !empty($terms) ) {
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
+			<?php the_content();?>
+
 			<?php // the_post_navigation(); ?>
 
 			<?php endwhile; // end of the loop. ?>
