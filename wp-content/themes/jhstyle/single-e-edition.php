@@ -1,26 +1,20 @@
 <?php
 
 get_header(); 
-
-if ( have_posts() ) :
 	
-	$heroImage = get_field('page_hero_image');
-	$issueEmbed = get_field('issue_embed_code');
-
 ?>
 
-<div class="container-fluid nopad">
-    <div class="category-hero">
-        <img src="<?php echo $heroImage['sizes']['full_screen'];?>" />
-        <h1 class="category-title"><?php the_title(); ?></h1>
-    </div>
-</div>
+<?php get_template_part('partials/global/page-hero');?>
 
 <div class="page-content"> 
     <div class="container">
         <div class="row">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+
+		$issueEmbed = get_field('issue_embed_code');
+
+		?>
 
 			<article class="publication-wrap">
 				<div class="container">

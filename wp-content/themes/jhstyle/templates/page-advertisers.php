@@ -2,26 +2,24 @@
 /*
 Template Name: Advertisers
 */
-?>
-<?php get_header(); ?>
+
+get_header(); ?>
 
 <!-- PAGE HERO -->
 
-<?php get_template_part('partials/content/hero'); ?>
+<?php get_template_part('partials/global/page-hero');?>
 
-<!-- WYSIWYG CONTENT -->
+<div class="page-content"> 
+    <div class="container">
+        <div class="row">
 
-<?php 
-	$hide = get_field('hide_content');
-	if ($hide != true){ ?>
+		<?php get_template_part('partials/loops/advertisers-loop'); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
-		<?php get_template_part('partials/global/page-content'); ?>
-	<?php endwhile; // end of the loop. ?>
-<?php } ?>
+		</div>
+	</div>
+</div>
 
-<!-- FLEXIBLE CONTENT TEMPLATES -->
 
-<?php get_template_part('partials/content/flex-templates'); ?>
+
 
 <?php get_footer();?>

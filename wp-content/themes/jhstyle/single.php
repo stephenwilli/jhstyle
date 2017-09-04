@@ -7,6 +7,7 @@ if( !empty($terms) ) {
 
 	$term = array_pop($terms);
 	$categorySlug = $term->slug;
+	$categoryTitle = $term->name;
 	$categoryImage = get_field('category_featured_image', $term );
 }
 
@@ -15,16 +16,23 @@ if( !empty($terms) ) {
 <div class="container-fluid nopad">
     <div class="category-hero  <?php echo $categorySlug;?>">
         <img src="<?php echo $categoryImage['sizes']['full_screen'];?>" />
-        <h1 class="category-title"><?php the_title();?></h1>
+        <h1 class="category-title"><?php echo $categoryTitle;?></h1>
     </div>
 </div>
 
-	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'partials/loops/single-loop' ); ?>
+<div class="page-content"> 
+    <div class="container">
+        <div class="row">
 
-		<?php // the_post_navigation(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php endwhile; // end of the loop. ?>
+			<?php // the_post_navigation(); ?>
+
+			<?php endwhile; // end of the loop. ?>
+
+		</div>
+	</div>
+</div>
 
 <?php get_footer();?>
