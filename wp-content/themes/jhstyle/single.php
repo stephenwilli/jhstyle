@@ -1,7 +1,5 @@
 <?php get_header(); 
 
-$heroImage = get_field('blog_hero_image', 'option');
-
 $terms = get_the_terms( get_the_ID(), 'category');
 if( !empty($terms) ) {
 
@@ -20,21 +18,26 @@ if( !empty($terms) ) {
     </div>
 </div>
 
+<?php if ( have_posts() ) : ?>
 
 <div class="page-content"> 
     <div class="container">
         <div class="row">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+        	<div class="col-md-10 col-md-offset-1">
+				<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php the_content();?>
+					<?php the_content();?>
+
+				<?php endwhile; // end of the loop. ?>
+			</div>
 
 			<?php // the_post_navigation(); ?>
-
-			<?php endwhile; // end of the loop. ?>
 
 		</div>
 	</div>
 </div>
+
+<?php endif; ?>
 
 <?php get_footer();?>
