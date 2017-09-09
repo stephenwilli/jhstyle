@@ -3,17 +3,47 @@
   .advertiser-logo {
     height: 150px;
     img {
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+      opacity: .6;
       position: absolute;
       top: 50%;
       left: 50%;
-      width: auto;
-      height: auto;
+      width: 75%;
       transform: translate(-50%, -50%);
     }
-    h3 {
-      text-align: center;
-      position: relative;
-      bottom: 0;
-    }
   }
+
+
+
+  .flex-direction-nav  {
+
+    .flex-next {
+      background-position: 100% 0;
+      right: -30px;
+      
+      &:before {
+        font-family: "fontawesome";
+        font-size: 4rem;
+        color: $black;
+        content:"\f105" !important;
+      }
+        
+    }
+
+    .flex-prev {
+      background-position: 100% 0;
+      left: -30px;
+      
+      &:before {
+        font-family: "fontawesome";
+        font-size: 4rem;
+        color: $black;
+        content:"\f104" !important;
+      }
+        
+    }
+
+
+}
 }

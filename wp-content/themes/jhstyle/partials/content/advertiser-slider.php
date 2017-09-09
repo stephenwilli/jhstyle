@@ -21,10 +21,9 @@
 	            
 	            ?>
 	                <li>
-	                    <a href="<?php echo $advertiserLink ?>" target="_blanks">
+	                    <a href="<?php echo $advertiserLink ?>" target="_blank">
 	                    	<div class="advertiser-logo">
 	                        	<img src="<?php echo $url; ?>" alt="<?php the_title();?>">
-	                        	<h3><?php the_title();?></h3>
 	                    	</div>    
 	                    </a>
 	                </li>

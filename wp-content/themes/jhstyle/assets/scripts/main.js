@@ -24,32 +24,39 @@
       animation: "fade",
       slideshow: true, // auto play on load
       slideshowSpeed: 5000,
-          animationSpeed: 800,
-          pauseOnHover: true,
-          directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
-          controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-          prevText: "previous",
-          nextText: "next"
+      animationSpeed: 800,
+      pauseOnHover: true,
+      directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
+      controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+      prevText: "",
+      nextText: ""
     });
 
     $('#issue-slider').flexslider({
       animation: "fade",
       slideshow: true, // auto play on load
       slideshowSpeed: 5000,
-          animationSpeed: 800,
-          pauseOnHover: true,
-          directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
-          controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-          prevText: "previous",
-          nextText: "next"
+      animationSpeed: 800,
+      pauseOnHover: true,
+      directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
+      controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+      prevText: "",
+      nextText: ""
     });
 
 
     $('#advertiser-slider').flexslider({
       animation: "slide",
-      animationLoop: false,
+      animationLoop: true,
       itemWidth: 300,
-      itemMargin: 5
+      itemMargin: 5,
+      slideshowSpeed: 5000,
+      animationSpeed: 800,
+      pauseOnHover: true,
+      directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
+      controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+      prevText: "",
+      nextText: ""
     });
 
 

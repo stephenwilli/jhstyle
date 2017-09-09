@@ -4,8 +4,6 @@
 
 get_header(); 
 
-if ( have_posts() ) :
-
 $heroImage = get_field('blog_hero_image', 'option');
 
 ?>
@@ -23,7 +21,7 @@ $heroImage = get_field('blog_hero_image', 'option');
         
             
                 
-                <? while ( have_posts() ) : the_post(); ?>
+                <? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 
                     <?php
                         $image_id = get_post_thumbnail_id();

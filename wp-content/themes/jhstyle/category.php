@@ -4,7 +4,7 @@
 
 get_header(); 
 
-if ( have_posts() ) :
+
 
 $obj = get_queried_object();
 $categoryName = $obj->name;
@@ -24,10 +24,9 @@ $categoryImage = get_field('category_featured_image', $obj);
 <div class="page-content"> 
     <div class="container">
         <div class="row">
-        
             
                 
-                <? while ( have_posts() ) : the_post(); ?>
+                <? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 
                     <?php
                         $image_id = get_post_thumbnail_id();

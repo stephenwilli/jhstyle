@@ -196,6 +196,8 @@
 
 }}
 
+.flexslider {
+
 .flex-direction-nav  {
   a {
     width: 100px;
@@ -217,7 +219,7 @@
 
   .flex-prev {
     background-position: 100% 0;
-    left: -30px
+    left: -30px;
     
     &:before {
       font-family: "fontawesome";
@@ -228,3 +230,5 @@
       
   }
 } 
+
+}
