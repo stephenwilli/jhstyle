@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Advertisers
+Template Name: Ads
 */
 
 get_header(); ?>
@@ -12,6 +12,11 @@ get_header(); ?>
 <div class="page-content"> 
     <div class="container">
         <div class="row">
+
+        
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part('partials/global/page-content'); ?>
+		<?php endwhile; // end of the loop. ?>
 
 		<?php get_template_part('partials/loops/advertisers-loop'); ?>
 

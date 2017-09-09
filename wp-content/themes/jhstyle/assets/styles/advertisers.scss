@@ -47,3 +47,32 @@
 
 }
 }
+
+
+.advertiser-card {
+  margin-bottom: 55px;
+  padding: 0 20px;
+  position: relative;
+  
+  .advertiser-logo {
+
+    height: 100px;
+
+    img {
+      max-height: 100px;
+      margin: 0 auto;
+      display: block;
+    }
+
+  }
+
+  h3 {
+    margin-top: 25px;
+  }
+}
+
+
+
+
+
+
