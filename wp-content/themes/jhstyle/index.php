@@ -21,7 +21,7 @@ $heroImage = get_field('blog_hero_image', 'option');
         
             
                 
-                <? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 
                     <?php
                         $image_id = get_post_thumbnail_id();
