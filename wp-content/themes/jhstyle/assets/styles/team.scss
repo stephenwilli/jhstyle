@@ -1,0 +1,18 @@
+.team-wrap {
+	img {
+		margin-bottom: 15px;
+	}
+
+	h3, h5 {
+		margin-bottom: 10px;
+	}
+
+	h5 {
+		color: $primary;
+		text-transform: uppercase;
+
+		span {
+			color: $secondary;
+		}
+	}
+}
