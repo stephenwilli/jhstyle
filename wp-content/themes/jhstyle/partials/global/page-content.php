@@ -1,4 +1,4 @@
-<div class="page-content bg-secondary">
+<div class="page-content">
 	<div class="container">
 		<div class="row wow fadeInUp">
 			<div class="col-lg-10 col-lg-offset-1">
