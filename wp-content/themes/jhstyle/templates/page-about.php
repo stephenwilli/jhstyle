@@ -18,7 +18,7 @@ get_header(); ?>
 			<?php get_template_part('partials/global/page-content'); ?>
 		<?php endwhile; // end of the loop. ?>
 
-		<?php get_template_part('partials/loops/team-loop'); ?>
+		
 
 		</div>
 	</div>
