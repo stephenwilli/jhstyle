@@ -1,3 +1,4 @@
+<h2 class="center">Advertiser Directory</h2>
 <?php
 	$args = array(
 		'post_type' => 'advertisers',
