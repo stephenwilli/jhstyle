@@ -8,13 +8,18 @@ $teamDescription = get_sub_field('team_description');
 
 ?>
 
-     <div class="col-sm-3">
+     <div class="col-sm-4">
      	<div class="team-wrap">
-	     <img src="<?php echo $teamPhoto['sizes']['cover'];?>" alt="<?php echo $teamName;?>"/>
-	     <h3><?php echo $teamName;?></h3>
-	     <h5><?php echo $teamPosition;?></h5>
-	     <h5><span><i class="fa fa-fw fa-envelope"></i> <?php echo $teamEmail;?></span></h5>
-	     <p><?php echo $teamDescription; ?></p>
+     		<div class="team-image">
+	     		<div class="overlay">
+	     			<p><?php echo $teamDescription; ?></p>
+	     		</div>
+			    <img src="<?php echo $teamPhoto['sizes']['cover'];?>" alt="<?php echo $teamName;?>"/>
+		    </div>
+		    <h3><?php echo $teamName;?></h3>
+		    <h5><?php echo $teamPosition;?></h5>
+		    <a href="<?php echo $teamEmail;?>"><h5><span><i class="fa fa-fw fa-envelope"></i> Contact</span></h5></a>
+		    
 	    </div>
      </div>
 

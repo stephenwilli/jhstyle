@@ -20,7 +20,7 @@ get_header(); ?>
 		</div>
 
 		<div class="row">
-			<div class="col-md-10 col-offset-md-1">
+			<div class="col-md-10 col-md-offset-1">
 			<?php get_template_part('partials/loops/team-loop'); ?>
 			</div>
 		</div>
