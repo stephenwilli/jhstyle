@@ -5,7 +5,7 @@
 
 	<!-- PAGE HERO -->
 
-	<?php get_template_part('partials/content/hero'); ?>
+	<?php get_template_part('partials/global/page-hero'); ?>
 
 	<!-- WYSIWYG CONTENT -->
 
