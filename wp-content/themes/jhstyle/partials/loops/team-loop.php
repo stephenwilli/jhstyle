@@ -18,7 +18,7 @@ $teamDescription = get_sub_field('team_description');
 		    </div>
 		    <h3><?php echo $teamName;?></h3>
 		    <h5><?php echo $teamPosition;?></h5>
-		    <a href="<?php echo $teamEmail;?>"><h5><span><i class="fa fa-fw fa-envelope"></i> Contact</span></h5></a>
+		    <a href="mailto:<?php echo $teamEmail;?>"><h5><span><i class="fa fa-fw fa-envelope"></i> Contact</span></h5></a>
 		    
 	    </div>
      </div>
