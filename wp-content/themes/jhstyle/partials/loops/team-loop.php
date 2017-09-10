@@ -1,12 +1,15 @@
-<?php if( have_rows('team_member') ): while ( have_rows('team_member') ) : the_row(); 
+<?php if( have_rows('team_member') ): ?>
 
-$teamPhoto = get_sub_field('team_photo');
-$teamName = get_sub_field('team_name');
-$teamPosition = get_sub_field('team_position');
-$teamEmail = get_sub_field('team_email');
-$teamDescription = get_sub_field('team_description');
+	<h2 class="center">Our Team</h2>
+	<?php while ( have_rows('team_member') ) : the_row(); 
 
-?>
+	$teamPhoto = get_sub_field('team_photo');
+	$teamName = get_sub_field('team_name');
+	$teamPosition = get_sub_field('team_position');
+	$teamEmail = get_sub_field('team_email');
+	$teamDescription = get_sub_field('team_description');
+
+	?>
 
      <div class="col-sm-4">
      	<div class="team-wrap">
