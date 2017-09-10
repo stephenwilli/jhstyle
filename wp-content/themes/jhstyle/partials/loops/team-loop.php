@@ -8,7 +8,7 @@ $teamDescription = get_sub_field('team_description');
 
 ?>
 
-     <div class="col-sm-4">
+     <div class="col-sm-3">
      	<div class="team-wrap">
 	     <img src="<?php echo $teamPhoto['sizes']['cover'];?>" alt="<?php echo $teamName;?>"/>
 	     <h3><?php echo $teamName;?></h3>
