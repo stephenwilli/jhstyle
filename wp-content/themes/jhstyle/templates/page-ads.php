@@ -10,21 +10,19 @@ get_header(); ?>
 <?php get_template_part('partials/global/page-hero');?>
 
 <div class="page-content"> 
-    <div class="container">
+
+	<?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part('partials/global/page-content'); ?>
+	<?php endwhile; // end of the loop. ?>
+
+	<div class="container">
         <div class="row">
 
-        
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part('partials/global/page-content'); ?>
-		<?php endwhile; // end of the loop. ?>
-
-		<?php get_template_part('partials/loops/advertisers-loop'); ?>
+			<?php get_template_part('partials/loops/advertisers-loop'); ?>
 
 		</div>
 	</div>
 </div>
-
-
 
 
 <?php get_footer();?>
