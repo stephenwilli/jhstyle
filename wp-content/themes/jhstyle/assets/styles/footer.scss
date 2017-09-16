@@ -71,4 +71,44 @@ footer {
         }
       }
     }
+
+    .widget_nav_menu {
+
+      @include respond-to($screen-sm){
+      margin-top: 40px;
+      }
+
+      .menu-item {
+        a {
+          font-size: 1.3rem;
+        }
+      }
+
+      .menu-item-has-children {
+        float:left;
+        margin-right: 60px;
+        @include respond-to($screen-sm){
+          float: initial;
+          margin-right: 0;
+        }
+      }
+
+      .sub-menu {
+        margin-left: 10px;
+        margin-top: 10px;
+        .menu-item {
+          a {
+            font-size: 1rem;
+          }
+        } 
+      }
+    }
+
+
+
+
+
+
+
+
 }
