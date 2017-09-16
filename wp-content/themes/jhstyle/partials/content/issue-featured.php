@@ -6,7 +6,7 @@
 <?php 
 
     $posts = get_posts(array(
-        'posts_per_page'    => 3,
+        'posts_per_page'    => 6,
         'post_type'         => 'post',
         'tag'               => $post_slug
 

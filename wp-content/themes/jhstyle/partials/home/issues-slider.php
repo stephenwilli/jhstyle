@@ -1,7 +1,7 @@
 <?php
     $issues_loop = new WP_Query( array(
         'post_type' => 'e-edition',
-        'order' => 'ASC',
+        'order' => 'DESC',
         'posts_per_page' => -1
     ) );
 ?>
@@ -20,7 +20,6 @@
                     <a href="<?php echo the_permalink(); ?>">
 
                       <div class="issue-cover" style="background-image : url('<?php echo $url;?>')"></div>
-                        <div class="overlay"></div>
                         <div class="caption">
                             <h2><?php echo the_title(); ?></h2>
                             <a href="<?php the_permalink(); ?>" class="btn -ghost">View Now</a>
