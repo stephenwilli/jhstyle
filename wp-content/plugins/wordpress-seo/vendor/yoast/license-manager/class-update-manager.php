@@ -111,7 +111,7 @@ if ( ! class_exists( "Yoast_Update_Manager", false ) ) {
 				'item_name'    => $this->product->get_item_name(),
 				'wp_version'   => $wp_version,
 				'item_version' => $this->product->get_version(),
-				'url'          => $this->license_manager->get_url(),
+				'url'          => home_url(),
 				'slug'         => $this->product->get_slug(),
 			);
 
@@ -155,15 +155,7 @@ if ( ! class_exists( "Yoast_Update_Manager", false ) ) {
 
 				// show notice to let the user know we deactivated his/her license
 				$this->error_message = __( "This site has not been activated properly on yoast.com and thus cannot check for future updates. Please activate your site with a valid license key.", $this->product->get_text_domain() );
-
-				/**
-				 * Filter: 'yoast-show-license-notice' - Show the license notice.
-				 *
-				 * @api bool $show True if notices should be shown.
-				 */
-				if ( apply_filters( 'yoast-show-license-notice', true ) ) {
-					add_action( 'admin_notices', array( $this, 'show_update_error' ) );
-				}
+				add_action( 'admin_notices', array( $this, 'show_update_error' ) );
 			}
 
 			$response->sections = maybe_unserialize( $response->sections );

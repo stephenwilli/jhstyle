@@ -26,10 +26,10 @@ $feature_toggles = array(
 		'label'   => __( 'The advanced settings include site-wide settings for your titles and meta descriptions, social metadata, sitemaps and much more.', 'wordpress-seo' ),
 	),
 	(object) array(
-		'name'    => 'Ryte',
+		'name'    => __( 'OnPage.org', 'wordpress-seo' ),
 		'setting' => 'onpage_indexability',
-		/* translators: %1$s expands to Ryte. */
-		'label'   => sprintf( __( 'The %1$s integration checks daily if your site is still indexable by search engines and notifies you when this is not the case.', 'wordpress-seo' ), 'Ryte' ),
+		/* translators: %1$s expands to OnPage.org */
+		'label'   => sprintf( __( 'The %1$s integration checks daily if your site is still indexable by search engines and notifies you when this is not the case.', 'wordpress-seo' ), 'OnPage.org' ),
 	),
 	(object) array(
 		'name'    => __( 'Admin bar menu', 'wordpress-seo' ),
@@ -43,16 +43,7 @@ $feature_toggles = array(
 		/* translators: 1: open link tag 2: close link tag */
 		'label'   => sprintf(
 			__( 'The Cornerstone content functionality enables you to mark and filter cornerstone content on your website. %1$sRead more about how cornerstone content can help you improve your site structure.%2$s', 'wordpress-seo' ),
-			'<a href="' .  WPSEO_Shortlinker::get( 'https://yoa.st/dashboard-help-cornerstone' ) . '" target="_blank">',
-			'</a>'
-		),
-	),
-	(object) array(
-		'name'    => __( 'Text link counter', 'wordpress-seo' ),
-		'setting' => 'enable_text_link_counter',
-		'label'   => sprintf(
-			__( 'This feature helps you improve the internal link structure of your site. If you want to know more about the why and how of internal linking, check out the %1$sarticle about internal linking on Yoast.com%2$s.', 'wordpress-seo' ),
-			'<a href="' .  WPSEO_Shortlinker::get( 'https://yoa.st/17g' ) . '" target="_blank">',
+			'<a href="' .  WPSEO_Shortlinker::get( 'https://yoa.st/dashboard-help-cornerstone' ) . '">',
 			'</a>'
 		),
 	),

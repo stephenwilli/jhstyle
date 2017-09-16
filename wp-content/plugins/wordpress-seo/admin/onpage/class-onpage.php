@@ -4,7 +4,7 @@
  */
 
 /**
- * Handle the request for getting the Ryte status.
+ * Handle the request for getting the onpage status
  */
 class WPSEO_OnPage {
 
@@ -14,7 +14,7 @@ class WPSEO_OnPage {
 	const USER_META_KEY = 'wpseo_dismiss_onpage';
 
 	/**
-	 * @var WPSEO_OnPage_Option The Ryte option class.
+	 * @var WPSEO_OnPage_Option The OnPage.org option class.
 	 */
 	private $onpage_option;
 
@@ -59,7 +59,7 @@ class WPSEO_OnPage {
 	}
 
 	/**
-	 * Fetching the data from Ryte.
+	 * Fetching the data from onpage.
 	 *
 	 * @return bool
 	 */
@@ -99,11 +99,10 @@ class WPSEO_OnPage {
 
 		if ( $this->should_show_notice() ) {
 			$notification_center->add_notification( $notification );
-
-			return;
 		}
-
-		$notification_center->remove_notification( $notification );
+		else {
+			$notification_center->remove_notification( $notification );
+		}
 	}
 
 	/**
@@ -130,7 +129,7 @@ class WPSEO_OnPage {
 	}
 
 	/**
-	 * Send a request to Ryte to get the indexability.
+	 * Send a request to OnPage.org to get the indexability
 	 *
 	 * @return int(0)|int(1)|false
 	 */
@@ -188,7 +187,7 @@ class WPSEO_OnPage {
 		// Adding admin notice if necessary.
 		add_filter( 'admin_init', array( $this, 'show_notice' ) );
 
-		// Setting the action for the Ryte fetch.
+		// Setting the action for the OnPage fetch.
 		add_action( 'wpseo_onpage_fetch', array( $this, 'fetch_from_onpage' ) );
 	}
 
@@ -202,7 +201,7 @@ class WPSEO_OnPage {
 	}
 
 	/**
-	 * Redo the fetch request for Ryte.
+	 * Redo the fetch request for onpage
 	 */
 	private function catch_redo_listener() {
 		if ( filter_input( INPUT_GET, 'wpseo-redo-onpage' ) === '1' ) {
