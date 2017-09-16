@@ -1,9 +1,25 @@
 .post-meta {
-  h1 {
-    color: $secondary;
-  }
+	
+	h1 {
+		color: $secondary;
+	}
 
-  h4 {
-    color: $primary;
-  }
+	h4 {
+		color: $primary;
+		font-size: 1.3rem;
+	}
+}
+
+.elementor-content {
+	margin-top: 25px;
+}
+
+.nav-card {
+	i {
+		color: $secondary;
+	}
+
+	h3 {
+		margin-top: 20px;
+	}
 }

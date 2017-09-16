@@ -59,7 +59,7 @@ h1, h2, h3 {
   margin-top: 0;
   color : $white;
   @include heading-font();
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 h4, h5, h6 {
