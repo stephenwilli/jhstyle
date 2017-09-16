@@ -10,7 +10,7 @@ if( !empty($terms) ) {
 }
 
 	$writer = get_field('ps_written_by');
-	$photographer = get_field('ps_photography_by');
+	$photographer = get_field('ps_images');
 	$subtitle = get_field('ps_subtitle');
 	$issue = get_field('ps_issue');
 	$image_id = get_post_thumbnail_id();
@@ -58,7 +58,7 @@ if( !empty($terms) ) {
 											<?php if($writer && $photographer ) { ?> | <?php } ?>
 
 										<?php if($photographer) { ?>
-											Photography By: <?php echo $photographer;?>
+											Images: <?php echo $photographer;?>
 										<?php } ?>
 									</h4>
 							</div>

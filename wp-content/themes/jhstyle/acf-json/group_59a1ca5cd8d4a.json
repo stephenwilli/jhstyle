@@ -47,8 +47,8 @@
             "prepend": "",
             "append": "",
             "key": "field_59bc59d48ed92",
-            "label": "Photography By:",
-            "name": "ps_photography_by",
+            "label": "Images:",
+            "name": "ps_images",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -96,5 +96,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1505577109
+    "modified": 1505588800
 }
