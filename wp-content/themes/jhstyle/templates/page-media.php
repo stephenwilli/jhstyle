@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: About/Contact
+Template Name: Media Kit
 */
 
 get_header(); ?>
@@ -15,15 +15,13 @@ get_header(); ?>
 		<?php get_template_part('partials/global/page-content'); ?>
 	<?php endwhile; // end of the loop. ?>
 
-    <div class="container">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-			<?php get_template_part('partials/loops/team-loop'); ?>
-			</div>
+
+			<?php get_template_part('partials/content/testimonials'); ?>
+
 		</div>
 	</div>
-
-	<?php get_template_part('partials/content/media-kit'); ?>
 
 </div>
 

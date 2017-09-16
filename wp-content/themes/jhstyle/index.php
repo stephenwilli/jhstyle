@@ -19,7 +19,8 @@ $heroImage = get_field('blog_hero_image', 'option');
     <div class="container">
         <div class="row">
         
-            
+            <?php if ( function_exists('yoast_breadcrumb') ) 
+            {yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
                 
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 
