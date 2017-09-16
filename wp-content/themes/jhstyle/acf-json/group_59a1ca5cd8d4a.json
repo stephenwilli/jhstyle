@@ -3,19 +3,72 @@
     "title": "Post Settings",
     "fields": [
         {
-            "post_type": [
-                "e-edition"
-            ],
-            "taxonomy": [],
-            "min": "",
-            "max": "",
-            "filters": "",
-            "elements": "",
-            "return_format": "object",
-            "key": "field_59ac44cb3bcd9",
-            "label": "Attach to Issue",
-            "name": "attach_to_issue",
-            "type": "relationship",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_59bc84ea75531",
+            "label": "Subtitle",
+            "name": "ps_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_59bc59c68ed91",
+            "label": "Written By:",
+            "name": "ps_written_by",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_59bc59d48ed92",
+            "label": "Photography By:",
+            "name": "ps_photography_by",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_59bc8676c1f11",
+            "label": "Issue",
+            "name": "ps_issue",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,12 +89,12 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1504462363
+    "modified": 1505527491
 }
