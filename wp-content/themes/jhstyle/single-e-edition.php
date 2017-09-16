@@ -16,7 +16,7 @@ get_header();
 
 		?>
 
-			<article class="publication-wrap">
+			<article class="edition-wrap">
 				<div class="container">
 					<div class="row">
 						
