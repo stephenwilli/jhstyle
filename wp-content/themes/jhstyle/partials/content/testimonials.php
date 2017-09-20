@@ -3,7 +3,7 @@ if ( have_rows('testimonial', 'option') ):
 ?>
 	<div class="col-md-6 col-md-offset-3">
 		<div class="testimonial-wrap">
-			<div class="background"></div>
+			<h3>What Our Reader's Are Saying</h3>
 			<div id="testimonial-slider" class="flexslider">
 				<ul class="slides">
 					<?php while( have_rows('testimonial', 'option') ): the_row(); 
