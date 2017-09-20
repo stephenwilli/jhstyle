@@ -57,11 +57,19 @@
   .advertiser-logo {
 
     height: 100px;
+    opacity: 1;
+    @include transition($transition300);
+
+    &:hover {
+      opacity: .6;
+    }
 
     img {
       max-height: 100px;
       margin: 0 auto;
       display: block;
+      opacity: 1;
+      @include transition($transition300);
     }
 
   }

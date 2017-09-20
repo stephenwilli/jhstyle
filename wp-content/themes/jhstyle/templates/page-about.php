@@ -23,6 +23,8 @@ get_header(); ?>
 		</div>
 	</div>
 
+</div>
+
 	<?php get_template_part('partials/content/media-kit'); ?>
 
 </div>

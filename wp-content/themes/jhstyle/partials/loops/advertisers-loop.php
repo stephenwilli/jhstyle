@@ -18,10 +18,12 @@
         
 			<div class="col-sm-3">
 			<div class="advertiser-card">
+				<a href="<?php echo $advertiserLink;?>" target="_blank">
 					<div class="advertiser-logo">
 						<img src="<?php echo $url;?>" alt="<?php the_title();?>"/>
 					</div>
 					<h3 class="center"><?php the_title();?></h3>
+				</a>
 			</div>
 		</div>
 	
