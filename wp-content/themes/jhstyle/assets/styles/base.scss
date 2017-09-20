@@ -42,6 +42,9 @@ a {
 
   @include transition(all .2s ease-in);
   color: $primary;
+  :hover {
+  cursor: pointer !important;
+}
 }
 
 a:hover,
