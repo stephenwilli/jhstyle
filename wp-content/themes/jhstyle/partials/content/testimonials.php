@@ -1,7 +1,7 @@
 <?php
 if ( have_rows('testimonial', 'option') ):
 ?>
-	<div class="col-md-6">
+	<div class="col-md-6 col-md-offset-3">
 		<div class="testimonial-wrap">
 			<div class="background"></div>
 			<div id="testimonial-slider" class="flexslider">
