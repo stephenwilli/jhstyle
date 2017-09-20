@@ -13,8 +13,7 @@ $categoryImage = get_field('category_featured_image', $obj);
 ?>
 
 <div class="container-fluid nopad">
-    <div class="category-hero <?php echo $categorySlug; ?>">
-        <img src="<?php echo $categoryImage['sizes']['full_screen'];?>" />
+    <div class="category-hero <?php echo $categorySlug; ?>" style="background-image: url('<?php echo $categoryImage['sizes']['full_screen'];?>');">
         <h1 class="category-title"><?php echo $categoryName; ?></h1>
     </div>
 </div>

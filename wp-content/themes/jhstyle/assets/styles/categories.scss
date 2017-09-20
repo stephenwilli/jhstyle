@@ -2,6 +2,14 @@
   height: 400px;
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @include respond-to($screen-md) { 
+    height: 300px;
+  }
+
 
   img {
     width: 100%;

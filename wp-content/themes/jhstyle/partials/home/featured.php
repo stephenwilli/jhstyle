@@ -26,7 +26,7 @@
                     }
                 ?>
                 <div class="post-card <?php echo $categorySlug;?>">
-                    <div class="col-sm-4">
+                    <div class="col-md-4">
                         
                             <div class="post-image">
                                     

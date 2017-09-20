@@ -19,7 +19,7 @@
 	        
 	    	<div class="row">
 	    		<div class="uneven">
-		    		<div class="col-sm-4">
+		    		<div class="col-md-4 col-sm-12">
 			    		<div class="features grid-card" style="background-image:url('<?php echo $featuresImage['sizes']['large'];?>');">
 				    		<a class="block-link" href="/stories/features">
 					    		<div class="overlay"></div>
@@ -28,9 +28,9 @@
 					    	</a>
 		    		</div>
 
-		    		<div class="col-sm-8">
+		    		<div class="col-md-8 col-sm-12">
 		    			<div class="row">
-		    				<div class="col-sm-6">
+		    				<div class="col-sm-12 col-md-6">
 		    					<div class="highstyle-profile grid-card">
 		    						<a href="/stories/highstyle-profile/">
 			    						<img src="<?php echo $highstyleProfileImage['sizes']['large'];?>" />
@@ -39,7 +39,7 @@
 				    				</a>
 		    					</div>
 		    				</div>
-		    				<div class="col-sm-6">
+		    				<div class="col-md-6 col-sm-12">
 		    					<div class="inspire grid-card">
 		    						<a href="/stories/inspire">
 			    						<img src="<?php echo $inspireImage['sizes']['large'];?>" />
@@ -64,7 +64,7 @@
 	    	</div>
 
 	    	<div class="row">
-	    		<div class="col-sm-4">
+	    		<div class="col-md-4 col-sm-12">
 	    			<div class="teton-village grid-card">
 	    				<a href="/stories/teton-village">
 		    				<img src="<?php echo $tetonVillageImage['sizes']['lg_thumb'];?>" />
@@ -73,7 +73,7 @@
 				    	</a>
 	    			</div>
 	    		</div>
-	    		<div class="col-sm-4">
+	    		<div class="col-md-4 col-sm-12">
 	    			<div class="healthy-living grid-card">
 		    			<a href="/stories/healthy-living">
 		    				<img src="<?php echo $healthyLivingImage['sizes']['lg_thumb'];?>" />
@@ -82,7 +82,7 @@
 				    	</a>
 	    			</div>
 	    		</div>
-	    		<div class="col-sm-4">
+	    		<div class="col-md-4 col-sm-12">
 	    			<div class="dining grid-card">
 		    			<a href="/stories/dining">
 		    				<img src="<?php echo $diningImage['sizes']['lg_thumb'];?>" />
@@ -94,7 +94,7 @@
 	    	</div>
 
 	    	<div class="row">
-	    	    <div class="col-sm-6">
+	    	    <div class="col-md-6 col-sm-12">
 	    	    	<div class="nightlife grid-card">
 		    	    	<a href="/stories/nightlife">
 		    	    		<img src="<?php echo $nightlifeImage['sizes']['lg_thumb'];?>" />
@@ -103,7 +103,7 @@
 				    	</a>
 	    	    	</div>
 	    		</div>
-	    		<div class="col-sm-6">
+	    		<div class="col-md-6 col-sm-12">
 	    			<div class="teton-valley grid-card">
 		    			<a href="/stories/teton-valley">
 		    				<img src="<?php echo $tetonValleyImage['sizes']['lg_thumb'];?>" />

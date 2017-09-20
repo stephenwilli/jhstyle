@@ -6,12 +6,10 @@ get_header();
 
 
 $heroImage = get_field('eedition_hero_image', 'option');
-
 ?>
 
 <div class="container-fluid nopad">
-    <div class="category-hero">
-        <img src="<?php echo $heroImage['sizes']['full_screen'];?>" />
+    <div class="category-hero" style="background-image: url('<?php echo $heroImage['sizes']['full_screen'];?>');">
         <h1 class="category-title">E-Editions</h1>
     </div>
 </div>

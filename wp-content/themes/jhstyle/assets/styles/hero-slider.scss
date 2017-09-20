@@ -40,6 +40,16 @@
       }
 
     }
+    
+    @include respond-to($screen-sm){
+      padding-left: 10% !important;
+      padding-right: 10% !important;
+      padding-bottom: 5% !important;
+      width: 100%;
+      text-align: center !important;
+
+    }
+
 
     .btn {
       margin: 15px 0;
@@ -59,9 +69,6 @@
         font-size: 2rem;
       }
 
-      @include respond-to($screen-xs){
-        font-size: 1.5rem;
-      }
     }
 
   }

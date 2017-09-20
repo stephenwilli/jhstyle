@@ -9,8 +9,7 @@ $heroImage = get_field('blog_hero_image', 'option');
 ?>
 
 <div class="container-fluid nopad">
-    <div class="category-hero">
-        <img src="<?php echo $heroImage['sizes']['full_screen'];?>" />
+    <div class="category-hero" style="background-image: url('<?php echo $heroImage['sizes']['full_screen'];?>');"">
         <h1 class="category-title">Stories</h1>
     </div>
 </div>

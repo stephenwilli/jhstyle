@@ -20,13 +20,25 @@
 	</div>
 </section>
 
+<div class="page-content"> 
+    <div class="container">
+        <div class="row">
+			<?php get_template_part('partials/home/featured'); ?>
+		</div>
+	</div>
+</div>
 
-<?php get_template_part('partials/home/featured'); ?>
+			<?php get_template_part('partials/content/media-kit'); ?>
 
-<?php get_template_part('partials/content/media-kit'); ?>
+<div class="page-content"> 
+    <div class="container">
+        <div class="row">
 
-<?php get_template_part('partials/content/story-grid'); ?>
+			<?php get_template_part('partials/content/story-grid'); ?>
 
-<?php get_template_part('partials/content/advertiser-slider'); ?>
+			<?php get_template_part('partials/content/advertiser-slider'); ?>
+		</div>
+	</div>
+</div>
 
 <?php get_footer();?>
