@@ -18,6 +18,8 @@
 
   require('functions/wp-bootstrap-navwalker.php');
 
+   require( 'functions/breadcrumbs.php' );
+
 
 /* BACKEND
 /===================================================== */
@@ -37,4 +39,6 @@
  require( 'functions/image-size.php' );
 
  require( 'functions/default-images.php' );
+
+
 

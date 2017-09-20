@@ -29,7 +29,9 @@ if( !empty($terms) ) {
 <div class="page-content"> 
     <div class="container">
         <div class="row">
-		
+
+        	<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
+
 			<?php while ( have_posts() ) : the_post(); ?>
 	        	
 	        	<div class="post-meta">

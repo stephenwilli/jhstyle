@@ -149,15 +149,9 @@ class Plugin {
 			true
 		);
 
-		$post = get_post();
-
 		$locale_settings = [
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'elementor-pro-frontend' ),
-			// TODO: Temp since 1.3.0
-			'postTitle' => $post->post_title,
-			'postDescription' => $post->post_excerpt,
-			// End temp
 		];
 
 		wp_localize_script(

@@ -1,4 +1,4 @@
-/*! elementor-pro - v1.6.1 - 28-08-2017 */
+/*! elementor-pro - v1.8.2 - 19-09-2017 */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var ElementorProFrontend = function( $ ) {
 	var self = this;
@@ -14,7 +14,8 @@ var ElementorProFrontend = function( $ ) {
 		slides: require( 'modules/slides/assets/js/frontend/frontend' ),
         share_buttons: require( 'modules/share-buttons/assets/js/frontend/frontend' ),
         nav_menu: require( 'modules/nav-menu/assets/js/frontend/frontend' ),
-        animatedText: require( 'modules/animated-headline/assets/js/frontend/frontend' )
+        animatedText: require( 'modules/animated-headline/assets/js/frontend/frontend' ),
+        social: require( 'modules/social/assets/js/frontend/frontend' )
     };
 
 	var initModules = function() {
@@ -34,7 +35,7 @@ var ElementorProFrontend = function( $ ) {
 
 window.elementorProFrontend = new ElementorProFrontend( jQuery );
 
-},{"modules/animated-headline/assets/js/frontend/frontend":2,"modules/countdown/assets/js/frontend/frontend":4,"modules/forms/assets/js/frontend/frontend":6,"modules/nav-menu/assets/js/frontend/frontend":11,"modules/posts/assets/js/frontend/frontend":13,"modules/share-buttons/assets/js/frontend/frontend":17,"modules/slides/assets/js/frontend/frontend":19}],2:[function(require,module,exports){
+},{"modules/animated-headline/assets/js/frontend/frontend":2,"modules/countdown/assets/js/frontend/frontend":4,"modules/forms/assets/js/frontend/frontend":6,"modules/nav-menu/assets/js/frontend/frontend":11,"modules/posts/assets/js/frontend/frontend":13,"modules/share-buttons/assets/js/frontend/frontend":17,"modules/slides/assets/js/frontend/frontend":19,"modules/social/assets/js/frontend/frontend":21}],2:[function(require,module,exports){
 module.exports = function() {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/animated-headline.default', require( './handlers/animated-headlines' ) );
 };
@@ -75,6 +76,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 
 		settings.classes = {
 			dynamicText: 'elementor-headline-dynamic-text',
+			dynamicLetter: 'elementor-headline-dynamic-letter',
 			textActive: 'elementor-headline-text-active',
 			textInactive: 'elementor-headline-text-inactive',
 			letters: 'elementor-headline-letters',
@@ -120,13 +122,13 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 			$word.empty();
 
 			letters.forEach( function( letter ) {
-				var $i = jQuery( '<i>' ).text( letter );
+				var $letter = jQuery( '<span>', { 'class': classes.dynamicLetter } ).text( letter );
 
 				if ( isActive ) {
-					$i.addClass( classes.animationIn );
+					$letter.addClass( classes.animationIn );
 				}
 
-				$word.append( $i );
+				$word.append( $letter );
 			} );
 
 			$word.css( 'opacity', 1 );
@@ -176,7 +178,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 			animationType = self.getElementSettings( 'animation_type' );
 
 		if ( 'typing' === animationType ) {
-			self.showLetter( $word.find( 'i' ).eq( 0 ), $word, false, $duration );
+			self.showLetter( $word.find( '.' + settings.classes.dynamicLetter ).eq( 0 ), $word, false, $duration );
 
 			$word
 				.addClass( settings.classes.textActive )
@@ -194,6 +196,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 		var self = this,
 			settings = self.getSettings(),
 			classes = settings.classes,
+			letterSelector = '.' + classes.dynamicLetter,
 			animationType = self.getElementSettings( 'animation_type' ),
 			nextWord = self.getNextWord( $word );
 
@@ -206,7 +209,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 				$word
 					.addClass( settings.classes.textInactive )
 					.removeClass( classes.textActive )
-					.children( 'i' )
+					.children( letterSelector )
 					.removeClass( classes.animationIn );
 			}, settings.selectionDuration );
 			setTimeout( function() {
@@ -214,11 +217,11 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 			}, settings.typeAnimationDelay );
 
 		} else if ( self.elements.$headline.hasClass( classes.letters ) ) {
-			var bool = $word.children( 'i' ).length >= nextWord.children( 'i' ).length;
+			var bool = $word.children( letterSelector ).length >= nextWord.children( letterSelector ).length;
 
-			self.hideLetter( $word.find( 'i' ).eq( 0 ), $word, bool, settings.lettersDelay );
+			self.hideLetter( $word.find( letterSelector ).eq( 0 ), $word, bool, settings.lettersDelay );
 
-			self.showLetter( nextWord.find( 'i' ).eq( 0 ), nextWord, bool, settings.lettersDelay );
+			self.showLetter( nextWord.find( letterSelector ).eq( 0 ), nextWord, bool, settings.lettersDelay );
 
 		} else if ( 'clip' === animationType ) {
 			self.elements.$dynamicWrapper.animate( { width: '2px' }, settings.revealDuration, function() {
@@ -282,7 +285,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 			var rotatingText = elementSettings.rotating_text.split( '\n' );
 
 			rotatingText.forEach( function( word, index ) {
-				var $dynamicText = jQuery( '<span>', { 'class': classes.dynamicText } ).text( word );
+				var $dynamicText = jQuery( '<span>', { 'class': classes.dynamicText } ).html( word.replace( / /g, '&nbsp;' ) );
 
 				if ( ! index ) {
 					$dynamicText.addClass( classes.textActive );
@@ -307,7 +310,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend( {
 	rotateHeadline: function() {
 		var settings = this.getSettings();
 
-		//insert <i> element for each letter of a changing word
+		//insert <span> for each letter of a changing word
 		if ( this.elements.$headline.hasClass( settings.classes.letters ) ) {
 			this.singleLetters();
 		}
@@ -664,13 +667,15 @@ module.exports = function() {
 
 },{"./handlers/nav-menu":12}],12:[function(require,module,exports){
 var MenuHandler = elementorFrontend.Module.extend( {
+
+	stretchElement: null,
+
 	getDefaultSettings: function() {
 		return {
 			selectors: {
 				menu: '.elementor-nav-menu',
-				menuContainer: '.elementor-nav-menu__container',
-				menuToggle: '.elementor-menu-toggle',
-				offCanvasCloseButton: '.elementor-nav-menu--close'
+				dropdownMenu: '.elementor-nav-menu__container.elementor-nav-menu--dropdown',
+				menuToggle: '.elementor-menu-toggle'
 			}
 		};
 	},
@@ -681,11 +686,9 @@ var MenuHandler = elementorFrontend.Module.extend( {
 
 		elements.$menu = this.$element.find( selectors.menu );
 
-		elements.$menuContainer = this.$element.find( selectors.menuContainer );
+		elements.$dropdownMenu = this.$element.find( selectors.dropdownMenu );
 
 		elements.$menuToggle = this.$element.find( selectors.menuToggle );
-
-		elements.$offCanvasCloseButton = this.$element.find( selectors.offCanvasCloseButton );
 
 		return elements;
 	},
@@ -699,31 +702,39 @@ var MenuHandler = elementorFrontend.Module.extend( {
 			self.toggleMenu( self.elements.$menuToggle.hasClass( 'elementor-active' ) );
 		} );
 
-		self.elements.$offCanvasCloseButton.on( 'click', this.closeOffCanvas );
+		elementorFrontend.addListenerOnce( self.$element.data( 'model-cid' ), 'resize', self.stretchMenu );
+	},
+
+	initStretchElement: function() {
+		this.stretchElement = new elementorFrontend.modules.StretchElement( { element: this.elements.$dropdownMenu } );
 	},
 
 	toggleMenu: function( show ) {
-		var elementSettings = this.getElementSettings();
-
-		if ( 'off_canvas' === elementSettings.mobile_layout || ! elementSettings.toggle  ) {
-			return;
-		}
-
-		var $menuContainer = this.elements.$menuContainer;
+		var $dropdownMenu = this.elements.$dropdownMenu;
 
 		if ( show ) {
-			$menuContainer.hide().slideDown( 250, function() {
-				$menuContainer.css( 'display', '' );
+			$dropdownMenu.hide().slideDown( 250, function() {
+				$dropdownMenu.css( 'display', '' );
 			} );
+
+			if ( this.getElementSettings( 'full_width' ) ) {
+				this.stretchElement.stretch();
+			}
 		} else {
-			$menuContainer.show().slideUp( 250, function() {
-				$menuContainer.css( 'display', '' );
+			$dropdownMenu.show().slideUp( 250, function() {
+				$dropdownMenu.css( 'display', '' );
 			} );
 		}
 	},
 
-	closeOffCanvas: function() {
-		this.elements.$menuToggle.removeClass( 'elementor-active' );
+	stretchMenu: function() {
+		if ( this.getElementSettings( 'full_width' ) ) {
+			this.stretchElement.stretch();
+
+			this.elements.$dropdownMenu.css( 'top', this.elements.$menuToggle.outerHeight() );
+		} else {
+			this.stretchElement.reset();
+		}
 	},
 
 	onInit: function() {
@@ -734,12 +745,15 @@ var MenuHandler = elementorFrontend.Module.extend( {
 			subIndicatorsPos: 'append'
 		} );
 
-		this.toggleMenu( false );
+		this.initStretchElement();
 
-		var ESC_KEY = 27,
-			hotKeysManager = elementorFrontend.isEditMode() ? elementor.hotKeys : elementorFrontend.hotKeys;
+		this.stretchMenu();
+	},
 
-		hotKeysManager.addHotKeyHandler( ESC_KEY, 'closeOffCanvas' + this.getID(), { handle: this.closeOffCanvas } );
+	onElementChange: function( propertyName ) {
+		if ( 'full_width' === propertyName ) {
+			this.stretchMenu();
+		}
 	}
 } );
 
@@ -1257,8 +1271,8 @@ ShareButtonsHandler = HandlerModule.extend( {
 			shareLinkSettings.url = elementSettings.share_url.url;
 		} else {
 			shareLinkSettings.url = location.href;
-			shareLinkSettings.title = elementorProFrontend.config.postTitle;
-			shareLinkSettings.text = elementorProFrontend.config.postDescription;
+			shareLinkSettings.title = elementorFrontend.config.post.title;
+			shareLinkSettings.text = elementorFrontend.config.post.excerpt;
 		}
 
 		this.elements.$shareButton.shareLink( shareLinkSettings );
@@ -1336,6 +1350,58 @@ module.exports = function( $scope, $ ) {
 				.addClass( 'animated ' + animationClass );
 		}
 	} );
+};
+
+},{}],21:[function(require,module,exports){
+var facebookHandler = require( './handlers/facebook-sdk' );
+
+module.exports = function() {
+	elementorFrontend.hooks.addAction( 'frontend/element_ready/facebook-button.default', facebookHandler );
+	elementorFrontend.hooks.addAction( 'frontend/element_ready/facebook-comments.default', facebookHandler );
+	elementorFrontend.hooks.addAction( 'frontend/element_ready/facebook-embed.default', facebookHandler );
+	elementorFrontend.hooks.addAction( 'frontend/element_ready/facebook-page.default', facebookHandler );
+};
+
+},{"./handlers/facebook-sdk":22}],22:[function(require,module,exports){
+var config = ElementorProFrontendConfig.facebook_sdk,
+	loadSDK = function() {
+	// Don't load in parallel
+	if ( config.isLoading || config.isLoaded ) {
+		return;
+	}
+
+	config.isLoading = true;
+
+	jQuery.ajax( {
+		url: 'https://connect.facebook.net/' + config.lang + '/sdk.js',
+		dataType: 'script',
+		cache: true,
+		success: function() {
+			FB.init( {
+				appId: config.app_id,
+				version: 'v2.10',
+				xfbml: false
+			} );
+			config.isLoaded = true;
+			config.isLoading = false;
+			jQuery( document ).trigger( 'fb:sdk:loaded' );
+		}
+	} );
+};
+
+module.exports = function( $scope, $ ) {
+	loadSDK();
+	// On FB SDK is loaded, parse current element
+	var parse = function() {
+		$scope.find( '.elementor-widget-container div' ).attr( 'data-width', $scope.width() + 'px' );
+		FB.XFBML.parse( $scope[0] );
+	};
+
+	if ( config.isLoaded ) {
+		parse();
+	} else {
+		jQuery( document ).on( 'fb:sdk:loaded', parse );
+	}
 };
 
 },{}]},{},[1])

@@ -17,8 +17,8 @@ final class Manager {
 			'posts',
 			'slides',
 			'forms',
+			'nav-menu',
 			'animated-headline',
-			//'nav-menu',
 			'pricing',
 			'flip-box',
 			'countdown',
@@ -26,6 +26,8 @@ final class Manager {
 			'share-buttons',
 			'custom-css',
 			'global-widget',
+			'blockquote',
+			'social',
 			'library',
 		];
 

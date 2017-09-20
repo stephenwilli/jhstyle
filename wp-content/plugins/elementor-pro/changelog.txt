@@ -1,5 +1,39 @@
 # Elementor Pro - by Elementor.com
 
+#### 2017-09-19 v1.8.2
+* Tweak! - Added target URL for the tweet message in Blockquote widget
+* Tweak! - Render the slide height before the slider is finished loading
+* Fix! - Space between words for Animated Headline widget
+* Fix! - RTL compatibility for Animated Headline widget
+* Fix! - Italic font style for Animated Headline widget
+* Fix! - Excluded Menu widget from the WP Editor text rendering
+
+#### 2017-09-18 v1.8.1
+* Fix! - WCAG Compatible "required" field attribute for W3C validation ([#2391](https://github.com/pojome/elementor/issues/2391))
+* Fix! - Print the main menu only when is necessary in Menu widget
+* Fix! - Use CSS media query instead of JS to hide items in Menu widget to avoid flickering on page load ([#2381](https://github.com/pojome/elementor/issues/2381))
+
+#### 2017-09-12 v1.8.0
+* New! - Added Nav Menu widget ([#1406](https://github.com/pojome/elementor/issues/1406))
+* Fix! - Field ID for checkbox control in Form widget ([#2279](https://github.com/pojome/elementor/issues/2279))
+* Fix! - Style for Blockquote widget included
+
+#### 2017-09-07 v1.7.2
+* Tweak! - Loading Facebook SDK via JS for better compatibility with caching plugins
+* Fix! - Responsive Embed Facebook post widget for Safari iOS ([#2340](https://github.com/pojome/elementor/issues/2340))
+
+#### 2017-09-05 v1.7.1
+* Fix! - Facebook SDK version
+
+#### 2017-09-05 v1.7.0
+* New! - Added Facebook Button widget for Like, Recommend, Share and Follow
+* New! - Added Facebook Embed widget for Post, Video and Comment
+* New! - Added Facebook Comments widget
+* New! - Added Facebook Page widget (Previously known as Like Box)
+* New! - Added Blockquote widget with Tweet button
+* Tweak! - Added Facebook SDK integration for all Facebook widgets
+* Fix! - Animated headline rotating with long words
+
 #### 2017-08-28 v1.6.1
 * Fix! - Animated Headline marker gets in front of neighboring spans even when "Bring to Front" is not set
 * Fix! - Stroke animation in Animated Headline for MS Edge browser
@@ -30,7 +64,7 @@
 * Tweak! - Rename `panel-posts-control` to `query-control` and added fallback support
 * Tweak! - Added compatibility for the future release of Elementor with history feature
 * Fix! - reCAPTCHA preview on the editor
-* Fix! - Manual selection (query control) has stopped working after saving ([#2000](https://github.com/pojome/elementor/issues/1963))
+* Fix! - Manual selection (query control) has stopped working after saving ([#2000](https://github.com/pojome/elementor/issues/2000))
 * Fix! - Added condition for icon size control in Share Buttons widget
 
 #### 2017-07-12 v1.5.6

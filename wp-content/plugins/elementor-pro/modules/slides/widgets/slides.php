@@ -1169,7 +1169,7 @@ class Slides extends Widget_Base {
 
 			$slide_html .= '</div>';
 			$slide_html = '<div class="slick-slide-bg' . $ken_class . '"></div><' . $slide_element . ' ' . $slide_attributes . ' class="slick-slide-inner">' . $slide_html . '</' . $slide_element . '>';
-			$slides[] = '<div class="elementor-repeater-item-' . $slide['_id'] . '">' . $slide_html . '</div>';
+			$slides[] = '<div class="elementor-repeater-item-' . $slide['_id'] . ' slick-slide">' . $slide_html . '</div>';
 			$slide_count++;
 		}
 

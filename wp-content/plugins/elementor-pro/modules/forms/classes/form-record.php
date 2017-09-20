@@ -152,7 +152,7 @@ class Form_Record {
 
 	public function replace_setting_shortcodes( $setting ) {
 		// Shortcode can be `[field id="fds21fd"]` or `[field title="Email" id="fds21fd"]`, multiple shortcodes are allowed
-		return preg_replace_callback( '/(\[field[^]]*id="(\w+)"[^]]*\])/', function ( $matches ) {
+		return preg_replace_callback( '/(\[field[^]]*id="(\w+)"[^]]*\])/', function( $matches ) {
 			$value = '';
 
 			if ( isset( $this->fields[ $matches[2] ] ) ) {

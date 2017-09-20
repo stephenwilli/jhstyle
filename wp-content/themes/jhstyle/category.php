@@ -21,7 +21,8 @@ $categoryImage = get_field('category_featured_image', $obj);
 <div class="page-content"> 
     <div class="container">
         <div class="row">
-            
+                
+            <div class="breadcrumb"><?php get_breadcrumb(); ?></div>                
                 
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 

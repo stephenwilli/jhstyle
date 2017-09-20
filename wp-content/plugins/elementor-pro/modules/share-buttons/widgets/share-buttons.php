@@ -7,7 +7,9 @@ use Elementor\Repeater;
 use Elementor\Widget_Base;
 use ElementorPro\Modules\ShareButtons\Module;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Share_Buttons extends Widget_Base {
 
@@ -64,7 +66,7 @@ class Share_Buttons extends Widget_Base {
 			[
 				'label' => __( 'Network', 'elementor-pro' ),
 				'type' => Controls_Manager::SELECT,
-				'options' => array_reduce( $networks_names,function ( $options, $network_name ) use ( $networks ) {
+				'options' => array_reduce( $networks_names, function( $options, $network_name ) use ( $networks ) {
 					$options[ $network_name ] = $networks[ $network_name ]['title'];
 
 					return $options;
