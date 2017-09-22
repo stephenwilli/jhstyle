@@ -8,7 +8,7 @@
 
 <!-- FLEXIBLE CONTENT TEMPLATES -->
 <section class="normal-pad">
-	<div class="container">
+	<div class="container row-eq-height">
 		<div class="row">
 			<div class="col-sm-5">
 				<?php get_template_part('partials/home/issues-slider'); ?>
