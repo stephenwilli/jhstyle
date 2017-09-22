@@ -23,14 +23,14 @@
 		display: none !important;
 	}
 
-	.j-post-overlay.juicer-feed a.juicer-button {
-		
-		border: 2px solid $primary !important;
-		color: $primary !important;
+}
 
-		&:hover {
-			color: $white !important;
-			background-color: $primary !important;
-		}
+.social-page {
+	.referral {
+		display: none !important;
+	}
+
+	li.feed-item.juicer.image-post {
+		display: none !important;
 	}
 }
