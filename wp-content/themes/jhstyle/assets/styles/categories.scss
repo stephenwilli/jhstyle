@@ -96,6 +96,13 @@
   clear: none;
   padding: 0 15px;
   margin-bottom: 30px;
+  height: 700px;
+
+  @include respond-to($screen-sm) { 
+    width: 100%;
+    height: auto;
+  }
+
 
   h3 {
     margin-bottom: .5rem;

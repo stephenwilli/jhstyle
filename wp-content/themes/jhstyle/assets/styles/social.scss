@@ -3,6 +3,14 @@
 	overflow: hidden;
 	position: relative;
 
+	.juicer-feed.modern li.feed-item {
+		@include respond-to($screen-sm) { 
+		    margin: 0 1%;
+		    width: 48%;
+		    float: left;
+		}
+	}
+
 	.social-overlay {
 		position: absolute;
 		top: 0;
@@ -11,11 +19,20 @@
 		height: 100%;
 		z-index: 10;
 		background: -moz-linear-gradient(
-                left,
+                top,
                 rgba(0,0,0,0.001) 0%,
-                rgba(201,201,201,1) 50%,
-                rgba(0,0,0,0.001) 100%
+                rgba(201,201,201,1) 100%
                 );
+		background: -webkit-linear-gradient(
+        top,
+        rgba(0,0,0,0.001) 0%,
+        rgba(201,201,201,1) 100%
+        );
+        background: linear-gradient(
+        top,
+        rgba(0,0,0,0.001) 0%,
+        rgba(201,201,201,1) 100%
+        );
 
 	}
 
