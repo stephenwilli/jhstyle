@@ -34,4 +34,6 @@
         </ul>
     </div>
 </div>
-
+<div class="center">
+    <a href="/e-edition/" class="btn">View All E-Editions</a>
+</div>

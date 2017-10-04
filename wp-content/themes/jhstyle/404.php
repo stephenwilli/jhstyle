@@ -1,26 +1,19 @@
 <?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @author      Flurin Dürst
- * @version     1.2
- * @since       WPSeed 0.1
- */
+
 ?>
+<?php get_header(); ?>
 
+	<!-- PAGE HERO -->
 
-<? get_header(); ?>
+	<?php get_template_part('partials/global/page-hero'); ?>
 
-<!-- content » 404 -->
+	<!-- WYSIWYG CONTENT -->
 
-  <div class="content">
+<div class="page-content center">
 
-    <h1>Error#404</h1>
+		<h2><?php _e( 'Oops! That page can&rsquo;t be found.', '_s' ); ?></h2>
+		<a class="btn" href="/">Head back to Homepage</a>
 
-    <div class="error404">
-      Page could not be found.
-    </div>
+</div>
 
-  </div>
-
-<? get_footer(); ?>
+<?php get_footer();?>
