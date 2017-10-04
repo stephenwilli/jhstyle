@@ -4,8 +4,7 @@
         <?php
     		$advertiser_loop = new WP_Query( array(
         		'post_type' => 'advertisers',
-        		'orderby' => 'title',
-				'order'   => 'rand',
+				'orderby'   => 'rand',
         		'posts_per_page' => 16
     		) );
 		?>
