@@ -30,12 +30,14 @@ $heroImage = get_field('eedition_hero_image', 'option');
                     <div class="post-card archive-card">
                         <div class="post-image">
                             <a class="block-link" href="<?php echo get_permalink(); ?>">
-                                    <div class="overlay">
-                                        <a href="<?php echo get_permalink(); ?>" class="overlay-btn btn -ghost">View Issue</a>
-                                    </div>
-                                    <img src="<?php echo $url; ?>" />
+                                <div class="overlay">
+                                    <a href="<?php echo get_permalink(); ?>" class="overlay-btn btn -ghost">View Issue</a>
+                                </div>
+                                <img src="<?php echo $url; ?>" alt="<?php the_title();?>"/>
+                                
                             </a>
                         </div>
+                        <h3 class="center edition-title"><?php the_title();?></h3>
                         <p><?php the_excerpt(); ?></p>
                     </div>
 
