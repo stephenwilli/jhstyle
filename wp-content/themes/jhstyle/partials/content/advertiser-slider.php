@@ -1,6 +1,6 @@
 <div class="container normal-pad">
     <div class="row">
-    	<h2 class="center">Advertisers</h2>
+    	<h2 class="center">Partners</h2>
         <?php
     		$advertiser_loop = new WP_Query( array(
         		'post_type' => 'advertisers',
@@ -32,5 +32,10 @@
 	        ?>
 	        </ul>
 	    </div>
+    </div>
+    <div class="row">
+    	<div class="col-sm-12 center">
+    		<a class="btn ads-btn" href="/partners/">View all Partners</a>
+    	</div>	
     </div>
 </div>

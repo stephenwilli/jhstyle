@@ -1,4 +1,4 @@
-<h2 class="center">Advertiser Directory</h2>
+<h2 class="center" style="margin-bottom: 3rem;">Partner Directory</h2>
 <?php
 	$args = array(
 		'post_type' => 'advertisers',
@@ -13,10 +13,10 @@
 		setup_postdata( $post ); 
         $image_id = get_post_thumbnail_id();
         list( $url, $width, $height ) = wp_get_attachment_image_src( $image_id, 'medium' );
-        $advertiserLink = get_field('advertiser_link');?> 
+        $advertiserLink = get_field('advertiser_link');
+    ?> 
 
-        
-			<div class="col-sm-3">
+		<div class="col-sm-6 col-md-3">
 			<div class="advertiser-card">
 				<a href="<?php echo $advertiserLink;?>" target="_blank">
 					<div class="advertiser-logo">
