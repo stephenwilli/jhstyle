@@ -95,8 +95,8 @@
   float: left;
   clear: none;
   padding: 0 15px;
-  margin-bottom: 30px;
-  height: 700px;
+  margin-bottom: 60px;
+  height: 650px;
 
   @include respond-to($screen-sm) { 
     width: 100%;
@@ -105,7 +105,6 @@
 
   .edition-title {
     margin-top: 25px;
-    margin-bottom: 45px;
   }
 
   h3 {
