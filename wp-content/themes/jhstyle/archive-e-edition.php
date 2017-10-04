@@ -37,7 +37,9 @@ $heroImage = get_field('eedition_hero_image', 'option');
                                 
                             </a>
                         </div>
-                        <h3 class="center edition-title"><?php the_title();?></h3>
+                        <a href="<?php echo get_permalink(); ?>">
+                            <h3 class="center edition-title"><?php the_title();?></h3>
+                        </a>
                         <p><?php the_excerpt(); ?></p>
                     </div>
 
