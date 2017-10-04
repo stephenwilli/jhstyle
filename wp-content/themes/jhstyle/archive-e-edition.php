@@ -27,7 +27,7 @@ $heroImage = get_field('eedition_hero_image', 'option');
 
                     ?>
                 
-                    <div class="post-card archive-card">
+                    <div class="post-card archive-card edition-archive">
                         <div class="post-image">
                             <a class="block-link" href="<?php echo get_permalink(); ?>">
                                 <div class="overlay">
