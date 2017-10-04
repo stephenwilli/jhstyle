@@ -1,4 +1,4 @@
-/*! elementor-pro - v1.8.2 - 19-09-2017 */
+/*! elementor-pro - v1.9.3 - 03-10-2017 */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var ElementorProFrontend = function( $ ) {
 	var self = this;
@@ -15,6 +15,7 @@ var ElementorProFrontend = function( $ ) {
         share_buttons: require( 'modules/share-buttons/assets/js/frontend/frontend' ),
         nav_menu: require( 'modules/nav-menu/assets/js/frontend/frontend' ),
         animatedText: require( 'modules/animated-headline/assets/js/frontend/frontend' ),
+		carousel: require( 'modules/carousel/assets/js/frontend/frontend' ),
         social: require( 'modules/social/assets/js/frontend/frontend' )
     };
 
@@ -35,7 +36,7 @@ var ElementorProFrontend = function( $ ) {
 
 window.elementorProFrontend = new ElementorProFrontend( jQuery );
 
-},{"modules/animated-headline/assets/js/frontend/frontend":2,"modules/countdown/assets/js/frontend/frontend":4,"modules/forms/assets/js/frontend/frontend":6,"modules/nav-menu/assets/js/frontend/frontend":11,"modules/posts/assets/js/frontend/frontend":13,"modules/share-buttons/assets/js/frontend/frontend":17,"modules/slides/assets/js/frontend/frontend":19,"modules/social/assets/js/frontend/frontend":21}],2:[function(require,module,exports){
+},{"modules/animated-headline/assets/js/frontend/frontend":2,"modules/carousel/assets/js/frontend/frontend":4,"modules/countdown/assets/js/frontend/frontend":8,"modules/forms/assets/js/frontend/frontend":10,"modules/nav-menu/assets/js/frontend/frontend":15,"modules/posts/assets/js/frontend/frontend":17,"modules/share-buttons/assets/js/frontend/frontend":21,"modules/slides/assets/js/frontend/frontend":23,"modules/social/assets/js/frontend/frontend":25}],2:[function(require,module,exports){
 module.exports = function() {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/animated-headline.default', require( './handlers/animated-headlines' ) );
 };
@@ -340,10 +341,310 @@ module.exports = function( $scope ) {
 
 },{}],4:[function(require,module,exports){
 module.exports = function() {
+	elementorFrontend.hooks.addAction( 'frontend/element_ready/media-carousel.default', require( './handlers/media-carousel' ) );
+	elementorFrontend.hooks.addAction( 'frontend/element_ready/testimonial-carousel.default', require( './handlers/testimonial-carousel' ) );
+};
+
+},{"./handlers/media-carousel":6,"./handlers/testimonial-carousel":7}],5:[function(require,module,exports){
+module.exports = elementorFrontend.Module.extend( {
+
+	swipers: {},
+
+	getDefaultSettings: function() {
+		return {
+			selectors: {
+				mainSwiper: '.elementor-main-swiper',
+				swiperSlide: '.swiper-slide'
+			},
+			slidesPerView: {
+				desktop: 3,
+				tablet: 2,
+				mobile: 1
+			}
+		};
+	},
+
+	getDefaultElements: function() {
+		var selectors = this.getSettings( 'selectors' );
+
+		var elements = {
+			$mainSwiper: this.$element.find( selectors.mainSwiper )
+		};
+
+		elements.$mainSwiperSlides = elements.$mainSwiper.find( selectors.swiperSlide );
+
+		return elements;
+	},
+
+	getSlidesCount: function() {
+		return this.elements.$mainSwiperSlides.length;
+	},
+
+	getInitialSlide: function() {
+		var editSettings = this.getEditSettings();
+
+		return editSettings.activeItemIndex ? editSettings.activeItemIndex - 1 : Math.floor( ( this.getSlidesCount() - 1 ) / 2 );
+	},
+
+	getSlidesPerView: function() {
+		return Math.min( this.getSlidesCount(), +this.getElementSettings( 'slides_per_view' ) || this.getSettings( 'slidesPerView.desktop' ) );
+	},
+
+	getTabletSlidesPerView: function() {
+		return Math.min( this.getSlidesCount(), +this.getElementSettings( 'slides_per_view_tablet' ) || this.getSettings( 'slidesPerView.tablet' ) );
+	},
+
+	getMobileSlidesPerView: function() {
+		return Math.min( this.getSlidesCount(), +this.getElementSettings( 'slides_per_view_mobile' ) || this.getSettings( 'slidesPerView.mobile' ) );
+	},
+
+	getSwiperOptions: function() {
+		var elementSettings = this.getElementSettings();
+
+		return {
+			pagination: '.swiper-pagination',
+			nextButton: '.elementor-swiper-button-next',
+			prevButton: '.elementor-swiper-button-prev',
+			paginationClickable: true,
+			grabCursor: true,
+			initialSlide: this.getInitialSlide(),
+			slidesPerView: this.getSlidesPerView(),
+			spaceBetween: elementSettings.space_between.size,
+			paginationType: elementSettings.pagination,
+			autoplay: elementorFrontend.isEditMode() ? 0 : elementSettings.autoplay_speed,
+			autoplayDisableOnInteraction: !! elementSettings.pause_on_interaction,
+			loop: true,
+			loopedSlides: this.getSlidesCount(),
+			speed: elementSettings.speed,
+			effect: elementSettings.effect,
+			breakpoints: {
+				1024: {
+					slidesPerView: this.getTabletSlidesPerView(),
+					spaceBetween: elementSettings.space_between_tablet.size
+				},
+				767: {
+					slidesPerView: this.getMobileSlidesPerView(),
+					spaceBetween: elementSettings.space_between_mobile.size
+				}
+			}
+		};
+	},
+
+	updateSpaceBetween: function( swiper, propertyName ) {
+		var newSize = this.getElementSettings( propertyName ).size,
+			deviceMatch = propertyName.match( 'space_between_(.*)' );
+
+		if ( deviceMatch ) {
+			var breakpointDictionary = {
+				tablet: 1024,
+				mobile: 767
+			};
+
+			swiper.params.breakpoints[ breakpointDictionary[ deviceMatch[1] ] ].spaceBetween = newSize;
+		} else {
+			swiper.originalParams.spaceBetween = newSize;
+		}
+
+		swiper.params.spaceBetween = newSize;
+
+		swiper.onResize();
+	},
+
+	onInit: function() {
+		elementorFrontend.Module.prototype.onInit.apply( this, arguments );
+
+		if ( 1 >= this.getSlidesCount() ) {
+			return;
+		}
+
+		this.swipers.main = new Swiper( this.elements.$mainSwiper, this.getSwiperOptions() );
+	},
+
+	onElementChange: function( propertyName ) {
+		if ( 0 === propertyName.indexOf( 'width' ) ) {
+			this.swipers.main.onResize();
+		}
+
+		if ( 0 === propertyName.indexOf( 'space_between' ) ) {
+			this.updateSpaceBetween( this.swipers.main, propertyName );
+		}
+	}
+} );
+
+},{}],6:[function(require,module,exports){
+var Base = require( './base' ),
+	MediaCarousel;
+
+MediaCarousel = Base.extend( {
+
+	slideshowSpecialElementSettings: [
+		'slides_per_view',
+		'slides_per_view_tablet',
+		'slides_per_view_mobile'
+	],
+
+	isSlideshow: function() {
+		return 'slideshow' === this.getElementSettings( 'skin' );
+	},
+
+	getDefaultSettings: function() {
+		var defaultSettings = Base.prototype.getDefaultSettings.apply( this, arguments );
+
+		if ( this.isSlideshow() ) {
+			defaultSettings.selectors.thumbsSwiper = '.elementor-thumbnails-swiper';
+
+			defaultSettings.slidesPerView = {
+				desktop: 5,
+				tablet: 4,
+				mobile: 3
+			};
+		}
+
+		return defaultSettings;
+	},
+
+	getElementSettings: function( setting ) {
+		if ( -1 !== this.slideshowSpecialElementSettings.indexOf( setting ) && this.isSlideshow() ) {
+			setting = 'slideshow_' + setting;
+		}
+
+		return Base.prototype.getElementSettings.call( this, setting );
+	},
+
+	getDefaultElements: function() {
+		var selectors = this.getSettings( 'selectors' ),
+			defaultElements = Base.prototype.getDefaultElements.apply( this, arguments );
+
+		if ( this.isSlideshow() ) {
+			defaultElements.$thumbsSwiper = this.$element.find( selectors.thumbsSwiper );
+		}
+
+		return defaultElements;
+	},
+
+	getSwiperOptions: function() {
+		var options = Base.prototype.getSwiperOptions.apply( this, arguments );
+
+		if ( 'coverflow' === this.getElementSettings( 'skin' ) ) {
+			options.effect = 'coverflow';
+		}
+
+		if ( this.isSlideshow() ) {
+			options.slidesPerView = 1;
+
+			delete options.pagination;
+			delete options.breakpoints;
+		}
+
+		return options;
+	},
+
+	getTabletSlidesPerView: function() {
+		var elementSettings = this.getElementSettings();
+
+		if ( ! elementSettings.slides_per_view_tablet && 'coverflow' === elementSettings.skin ) {
+			return Math.min( this.getSlidesCount(), 3 );
+		}
+
+		return Base.prototype.getTabletSlidesPerView.apply( this, arguments );
+	},
+
+	onInit: function() {
+		Base.prototype.onInit.apply( this, arguments );
+
+		if ( ! this.isSlideshow() || 1 >= this.getSlidesCount() ) {
+			return;
+		}
+
+		var elementSettings = this.getElementSettings();
+
+		var thumbsSliderOptions = {
+			slidesPerView: this.getSlidesPerView(),
+			initialSlide: this.getInitialSlide(),
+			centeredSlides: true,
+			slideToClickedSlide: true,
+			spaceBetween: elementSettings.space_between.size,
+			loopedSlides: this.getSlidesCount(),
+			loop: true,
+			onSlideChangeEnd: function( swiper ) {
+				swiper.fixLoop();
+			},
+			breakpoints: {
+				1024: {
+					slidesPerView: this.getTabletSlidesPerView(),
+					spaceBetween: elementSettings.space_between_tablet.size
+				},
+				767: {
+					slidesPerView: this.getMobileSlidesPerView(),
+					spaceBetween: elementSettings.space_between_mobile.size
+				}
+			}
+		};
+
+		this.swipers.main.params.control = this.swipers.thumbs = new Swiper( this.elements.$thumbsSwiper, thumbsSliderOptions );
+
+		this.swipers.thumbs.params.control = this.swipers.main;
+	},
+
+	onElementChange: function( propertyName ) {
+		if ( ! this.isSlideshow() ) {
+			Base.prototype.onElementChange.apply( this, arguments );
+
+			return;
+		}
+
+		if ( 0 === propertyName.indexOf( 'width' ) ) {
+			this.swipers.main.onResize();
+			this.swipers.thumbs.onResize();
+		}
+
+		if ( 0 === propertyName.indexOf( 'space_between' ) ) {
+			this.updateSpaceBetween( this.swipers.thumbs, propertyName );
+		}
+	}
+} );
+
+module.exports = function( $scope ) {
+	new MediaCarousel( { $element: $scope } );
+};
+
+},{"./base":5}],7:[function(require,module,exports){
+var Base = require( './base' ),
+	TestimonialCarousel;
+
+TestimonialCarousel = Base.extend( {
+
+	getDefaultSettings: function() {
+		var defaultSettings = Base.prototype.getDefaultSettings.apply( this, arguments );
+
+		defaultSettings.slidesPerView = {
+			desktop: 1,
+			tablet: 1,
+			mobile: 1
+		};
+
+		return defaultSettings;
+	},
+
+    getSwiperOptions: function() {
+        var options = Base.prototype.getSwiperOptions.apply( this, arguments );
+
+        options.effect = 'slide';
+
+        return options;
+    }
+} );
+
+module.exports = function( $scope ) {
+	new TestimonialCarousel( { $element: $scope } );
+};
+
+},{"./base":5}],8:[function(require,module,exports){
+module.exports = function() {
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/countdown.default', require( './handlers/countdown' ) );
 };
 
-},{"./handlers/countdown":5}],5:[function(require,module,exports){
+},{"./handlers/countdown":9}],9:[function(require,module,exports){
 var Countdown = function( $countdown, endTime, $ ) {
 	var timeInterval,
 		elements = {
@@ -412,7 +713,7 @@ module.exports = function( $scope, $ ) {
 	new Countdown( $element, date, $ );
 };
 
-},{}],6:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function() {
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/form.default', require( './handlers/form' ) );
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/subscribe.default', require( './handlers/form' ) );
@@ -420,7 +721,7 @@ module.exports = function() {
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/form.default', require( './handlers/recaptcha' ) );
 };
 
-},{"./handlers/form":9,"./handlers/recaptcha":10}],7:[function(require,module,exports){
+},{"./handlers/form":13,"./handlers/recaptcha":14}],11:[function(require,module,exports){
 module.exports = elementorFrontend.Module.extend( {
 	getDefaultSettings: function() {
 		return {
@@ -450,7 +751,7 @@ module.exports = elementorFrontend.Module.extend( {
 	}
 } );
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = elementorFrontend.Module.extend( {
 
 	getDefaultSettings: function() {
@@ -603,7 +904,7 @@ module.exports = elementorFrontend.Module.extend( {
 	}
 } );
 
-},{}],9:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var FormSender = require( './form-sender' ),
 	Form = FormSender.extend();
 
@@ -614,7 +915,7 @@ module.exports = function( $scope ) {
 	new RedirectAction( { $element: $scope } );
 };
 
-},{"./form-redirect":7,"./form-sender":8}],10:[function(require,module,exports){
+},{"./form-redirect":11,"./form-sender":12}],14:[function(require,module,exports){
 module.exports = function( $scope, $ ) {
 	var $element = $scope.find( '.elementor-g-recaptcha:last' );
 
@@ -649,7 +950,7 @@ module.exports = function( $scope, $ ) {
 	} );
 };
 
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
 	if ( jQuery.fn.smartmenus ) {
 		// Override the default stupid detection
@@ -665,7 +966,7 @@ module.exports = function() {
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/nav-menu.default', require( './handlers/nav-menu' ) );
 };
 
-},{"./handlers/nav-menu":12}],12:[function(require,module,exports){
+},{"./handlers/nav-menu":16}],16:[function(require,module,exports){
 var MenuHandler = elementorFrontend.Module.extend( {
 
 	stretchElement: null,
@@ -761,7 +1062,7 @@ module.exports = function( $scope ) {
 	new MenuHandler( { $element: $scope } );
 };
 
-},{}],13:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function() {
 	var PostsModule = require( './handlers/posts' ),
 		CardsModule = require( './handlers/cards' ),
@@ -784,7 +1085,7 @@ module.exports = function() {
 	} );
 };
 
-},{"./handlers/cards":14,"./handlers/portfolio":15,"./handlers/posts":16}],14:[function(require,module,exports){
+},{"./handlers/cards":18,"./handlers/portfolio":19,"./handlers/posts":20}],18:[function(require,module,exports){
 var PostsHandler = require( './posts' );
 
 module.exports = PostsHandler.extend( {
@@ -793,7 +1094,7 @@ module.exports = PostsHandler.extend( {
 	}
 } );
 
-},{"./posts":16}],15:[function(require,module,exports){
+},{"./posts":20}],19:[function(require,module,exports){
 var PostsHandler = require( './posts' );
 
 module.exports = PostsHandler.extend( {
@@ -1060,7 +1361,7 @@ module.exports = PostsHandler.extend( {
 	}
 } );
 
-},{"./posts":16}],16:[function(require,module,exports){
+},{"./posts":20}],20:[function(require,module,exports){
 module.exports = elementorFrontend.Module.extend( {
 	getElementName: function() {
 		return 'posts';
@@ -1245,14 +1546,14 @@ module.exports = elementorFrontend.Module.extend( {
 	}
 } );
 
-},{}],17:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
 	if ( ! elementorFrontend.isEditMode() ) {
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/share-buttons.default', require( './handlers/share-buttons' ) );
 	}
 };
 
-},{"./handlers/share-buttons":18}],18:[function(require,module,exports){
+},{"./handlers/share-buttons":22}],22:[function(require,module,exports){
 var HandlerModule = elementorFrontend.Module,
 	ShareButtonsHandler;
 
@@ -1314,12 +1615,12 @@ module.exports = function( $scope ) {
 	new ShareButtonsHandler( { $element: $scope } );
 };
 
-},{}],19:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function() {
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/slides.default', require( './handlers/slides' ) );
 };
 
-},{"./handlers/slides":20}],20:[function(require,module,exports){
+},{"./handlers/slides":24}],24:[function(require,module,exports){
 module.exports = function( $scope, $ ) {
 	var $slider = $scope.find( '.elementor-slides' );
 
@@ -1352,7 +1653,7 @@ module.exports = function( $scope, $ ) {
 	} );
 };
 
-},{}],21:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 var facebookHandler = require( './handlers/facebook-sdk' );
 
 module.exports = function() {
@@ -1362,7 +1663,7 @@ module.exports = function() {
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/facebook-page.default', facebookHandler );
 };
 
-},{"./handlers/facebook-sdk":22}],22:[function(require,module,exports){
+},{"./handlers/facebook-sdk":26}],26:[function(require,module,exports){
 var config = ElementorProFrontendConfig.facebook_sdk,
 	loadSDK = function() {
 	// Don't load in parallel

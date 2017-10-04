@@ -1,22 +1,18 @@
 <?php
 namespace ElementorPro\Modules\Forms\Classes;
 
-use Elementor\Widget_Base;
+use ElementorPro\Base\Base_Widget;
 use ElementorPro\Modules\Forms\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Form_Base extends Widget_Base {
+class Form_Base extends Base_Widget {
 
 	public function get_name() {}
 
 	public function get_title() {}
 
 	public function get_icon() {}
-
-	public function get_categories() {
-		return [ 'pro-elements' ];
-	}
 
 	public function on_export( $element ) {
 		/** @var \ElementorPro\Modules\Forms\Classes\Action_Base[] $actions */

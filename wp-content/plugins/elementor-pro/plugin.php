@@ -79,7 +79,7 @@ class Plugin {
 		return self::$_instance;
 	}
 
-	private function _includes() {
+	private function includes() {
 		require ELEMENTOR_PRO_PATH . 'includes/modules-manager.php';
 
 		if ( is_admin() ) {
@@ -273,7 +273,7 @@ class Plugin {
 	private function __construct() {
 		spl_autoload_register( [ $this, 'autoload' ] );
 
-		$this->_includes();
+		$this->includes();
 
 		$this->setup_hooks();
 

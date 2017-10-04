@@ -1,4 +1,4 @@
-/*! elementor - v1.7.4 - 18-09-2017 */
+/*! elementor - v1.7.11 - 04-10-2017 */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var HandleAddDuplicateBehavior;
 
@@ -4879,7 +4879,7 @@ helpers = {
 			return;
 		}
 
-		var fontType = elementor.config.controls.font.fonts[ font ],
+		var fontType = elementor.config.controls.font.options[ font ],
 			fontUrl,
 
 			subsets = {
@@ -7445,10 +7445,6 @@ ControlBaseItemView = Marionette.CompositeView.extend( {
 			classes += ' ' + modelClasses;
 		}
 
-		if ( ! _.isEmpty( this.model.get( 'section' ) ) ) {
-			classes += ' elementor-control-under-section';
-		}
-
 		if ( ! _.isEmpty( responsive ) ) {
 			classes += ' elementor-control-responsive-' + responsive.max;
 		}
@@ -8142,7 +8138,7 @@ module.exports = ControlSelect2View.extend( {
 		var helpers = ControlSelect2View.prototype.templateHelpers.apply( this, arguments );
 
 		helpers.getFontsByGroups = _.bind( function( groups ) {
-			var fonts = this.model.get( 'fonts' ),
+			var fonts = this.model.get( 'options' ),
 				filteredFonts = {};
 
 			_.each( fonts, function( fontType, fontName ) {
@@ -8337,7 +8333,7 @@ ControlIconView = ControlSelect2View.extend( {
 	},
 
 	filterIcons: function() {
-		var icons = this.model.get( 'icons' ),
+		var icons = this.model.get( 'options' ),
 			include = this.model.get( 'include' ),
 			exclude = this.model.get( 'exclude' );
 
@@ -8348,7 +8344,7 @@ ControlIconView = ControlSelect2View.extend( {
 				filteredIcons[ iconKey ] = icons[ iconKey ];
 			} );
 
-			this.model.set( 'icons', filteredIcons );
+			this.model.set( 'options', filteredIcons );
 			return;
 		}
 

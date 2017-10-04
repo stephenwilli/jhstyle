@@ -21,6 +21,7 @@ final class Manager {
 			'animated-headline',
 			'pricing',
 			'flip-box',
+			'carousel',
 			'countdown',
 			'woocommerce',
 			'share-buttons',

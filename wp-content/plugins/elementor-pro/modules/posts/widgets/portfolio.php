@@ -5,7 +5,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Scheme_Typography;
-use Elementor\Widget_Base;
+use ElementorPro\Base\Base_Widget;
 use ElementorPro\Modules\QueryControl\Controls\Group_Control_Posts;
 use ElementorPro\Modules\QueryControl\Module;
 use Elementor\Controls_Manager;
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class Portfolio
  */
-class Portfolio extends Widget_Base {
+class Portfolio extends Base_Widget {
 
 	/**
 	 * @var \WP_Query
@@ -34,10 +34,6 @@ class Portfolio extends Widget_Base {
 
 	public function get_icon() {
 		return 'eicon-gallery-grid';
-	}
-
-	public function get_categories() {
-		return [ 'pro-elements' ];
 	}
 
 	public function get_script_depends() {

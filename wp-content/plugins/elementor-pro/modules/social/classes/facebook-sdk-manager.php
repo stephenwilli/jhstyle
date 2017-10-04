@@ -73,11 +73,7 @@ class Facebook_SDK_Manager {
 		}
 
 		if ( is_admin() ) {
-			if ( method_exists( Plugin::elementor()->settings, 'add_section' ) ) {
-				add_action( 'elementor/admin/after_create_settings/' . Settings::PAGE_ID, [ $this, 'register_admin_fields' ] );
-			} else {
-				add_action( 'admin_init', [ $this, 'register_admin_fields_bc' ], 21 ); // After the base settings
-			}
+			add_action( 'elementor/admin/after_create_settings/' . Settings::PAGE_ID, [ $this, 'register_admin_fields' ] );
 		}
 	}
 
@@ -114,35 +110,6 @@ class Facebook_SDK_Manager {
 				],
 			],
 		] );
-	}
-
-	public function register_admin_fields_bc() {
-		$facebook_sdk_editor_section = 'elementor_facebook_sdk_editor_section';
-		$controls_class_name = 'Elementor\Settings_Controls';
-
-		add_settings_section(
-			$facebook_sdk_editor_section,
-			__( 'facebook_sdk', 'elementor-pro' ),
-			function() {
-				esc_html_e( 'facebook_sdk', 'elementor-pro' );
-			},
-			Settings::PAGE_ID
-		);
-
-		$field_id = 'elementor_pro_facebook_sdk_app_id';
-		add_settings_field(
-			$field_id,
-			__( 'App ID', 'elementor-pro' ),
-			[ $controls_class_name, 'render' ],
-			Settings::PAGE_ID,
-			$facebook_sdk_editor_section,
-			[
-				'id' => $field_id,
-				'type' => 'text',
-			]
-		);
-
-		register_setting( Settings::PAGE_ID, $field_id );
 	}
 
 	private function get_app_settings_url() {

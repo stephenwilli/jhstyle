@@ -166,7 +166,7 @@ class Form_Record {
 	public function __construct( $sent_data, $form ) {
 		$this->form_type = $form['widgetType'];
 		$this->form_settings = $form['settings'];
-		$this->sent_data = $sent_data;
+		$this->sent_data = stripslashes_deep( $sent_data );
 
 		$this->set_fields();
 		$this->set_meta();

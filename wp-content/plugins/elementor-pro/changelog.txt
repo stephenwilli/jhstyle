@@ -1,5 +1,31 @@
 # Elementor Pro - by Elementor.com
 
+#### 2017-10-03 v1.9.3
+* Fix! - Condition slide style that got effected by previous update
+
+#### 2017-10-02 v1.9.2
+* New! - Added integration with MailPoet 3 for Forms actions
+* Fix! - Removed height control from Testimonial carousel in mobile editing mode
+* Fix! - Removed bottom padding when there's no pagination in Testimonial carousel
+* Fix! - Added condition for slides style section in skin bubble mode
+* Fix! - Slides per view control for mobile editing in Testimonial carousel
+* Fix! - Navigation Arrows icons matched with common Elementor Navigation Arrows
+
+#### 2017-09-28 v1.9.1
+* Fix! - Slides per view for slideshow carousel
+* Fix! - Final polish for the new Testimonial Carousel widget
+* Fix! - Don't play video if slide type is not video
+* Fix! - Removed slides style section condition ([#2497](https://ggithub.com/pojome/elementor/issues/2497))
+* Fix! - Set cursor as pointer for slideshow thumbnails
+
+#### 2017-09-26 v1.9.0
+* New! - Added Media Carousel widget ([#216](https://github.com/pojome/elementor/issues/216), [#347](https://github.com/pojome/elementor/issues/347), [#2209](https://github.com/pojome/elementor/issues/2209))
+* New! - Added Testimonial Carousel widget ([#715](https://github.com/pojome/elementor/issues/715))
+
+#### 2017-09-24 v1.8.3
+* Fix! - Added compatibility for WordPress 4.8.2 & 4.7.6
+* Fix! - Remove slashes from Form sent data
+
 #### 2017-09-19 v1.8.2
 * Tweak! - Added target URL for the tweet message in Blockquote widget
 * Tweak! - Render the slide height before the slider is finished loading

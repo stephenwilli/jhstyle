@@ -2,11 +2,12 @@
 namespace ElementorPro\Modules\GlobalWidget\Widgets;
 
 use Elementor\Widget_Base;
+use ElementorPro\Base\Base_Widget;
 use ElementorPro\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Global_Widget extends Widget_Base {
+class Global_Widget extends Base_Widget {
 	/**
 	 * @var Widget_Base
 	 */

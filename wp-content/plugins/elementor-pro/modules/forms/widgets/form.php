@@ -113,8 +113,6 @@ class Form extends Form_Base {
 			[
 				'label' => __( 'Required', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'elementor-pro' ),
-				'label_off' => __( 'No', 'elementor-pro' ),
 				'return_value' => 'true',
 				'default' => '',
 				'conditions' => [
@@ -161,8 +159,6 @@ class Form extends Form_Base {
 			[
 				'label' => __( 'Inline List', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'elementor-pro' ),
-				'label_off' => __( 'No', 'elementor-pro' ),
 				'return_value' => 'elementor-subgroup-inline',
 				'default' => '',
 				'conditions' => [
@@ -603,8 +599,6 @@ class Form extends Form_Base {
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
 				'separator' => 'before',
-				'label_on' => __( 'Yes', 'elementor-pro' ),
-				'label_off' => __( 'No', 'elementor-pro' ),
 				'render_type' => 'none',
 			]
 		);
@@ -663,6 +657,21 @@ class Form extends Form_Base {
 				'type' => Controls_Manager::TEXT,
 				'default' => $default_messages[ Ajax_Handler::INVALID_FORM ],
 				'placeholder' => $default_messages[ Ajax_Handler::INVALID_FORM ],
+				'label_block' => true,
+				'condition' => [
+					'custom_messages!' => '',
+				],
+				'render_type' => 'none',
+			]
+		);
+
+		$this->add_control(
+			'subscriber_already_exists_message',
+			[
+				'label' => __( 'Subscriber Already Exists Message', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => $default_messages[ Ajax_Handler::SUBSCRIBER_ALREADY_EXISTS ],
+				'placeholder' => $default_messages[ Ajax_Handler::SUBSCRIBER_ALREADY_EXISTS ],
 				'label_block' => true,
 				'condition' => [
 					'custom_messages!' => '',

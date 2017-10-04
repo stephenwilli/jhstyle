@@ -174,7 +174,7 @@ class Blockquote extends Widget_Base {
 				'label' => __( 'Via', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => false,
-				'placeholder' => __( '@username', 'elementor-pro' ),
+				'placeholder' => '@username',
 				'condition' => [
 					'tweet_button' => 'yes',
 				],

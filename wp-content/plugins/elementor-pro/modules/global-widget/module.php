@@ -193,8 +193,7 @@ class Module extends Module_Base {
 
 		$wpdb->query(
 			$wpdb->prepare(
-				"DELETE FROM {$wpdb->postmeta} WHERE `meta_key` = '%s' AND `post_id` IN (%s);",
-				'_elementor_css',
+				"DELETE FROM {$wpdb->postmeta} WHERE `meta_key` = '_elementor_css' AND `post_id` IN (%s);",
 				implode( ',', array_keys( $including_post_ids ) )
 			)
 		);
