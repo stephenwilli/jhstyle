@@ -1,4 +1,4 @@
-<?php get_header(); 
+<?php get_header();
 
 $terms = get_the_terms( get_the_ID(), 'category');
 if( !empty($terms) ) {
@@ -26,24 +26,24 @@ if( !empty($terms) ) {
 
 <?php if ( have_posts() ) : ?>
 
-<div class="page-content"> 
+<div class="page-content">
     <div class="container">
         <div class="row">
 
         	<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
 
 			<?php while ( have_posts() ) : the_post(); ?>
-	        	
+
 	        	<div class="post-meta">
 	        		<div class="col-md-10 col-md-offset-1">
 						<div class="row">
-							
+
 							<div class="col-sm-6">
 								<img src="<?php echo $url;?>" alt="<?php the_title();?>"/>
 							</div>
 
 							<div class="col-sm-6">
-								
+
 									<h1><?php the_title();?></h1>
 									<h2><?php echo $subtitle;?></h2>
 
@@ -79,12 +79,31 @@ if( !empty($terms) ) {
 					</div>
 				</div>
 
-				
+
 
 			<?php endwhile; // end of the loop. ?>
 
 		</div>
 	</div>
+
+	<hr>
+
+	<div class="container normal-pad center">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="post-share">
+					<ul>
+						<li><h3>Share this Story:</h3></li>
+						<li><a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" target="_blank"><i class="fa-fw fa fa-facebook"></i><span>Facebook</span></a></li>
+						<li><a href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>, via @JHStyleMag" target="_blank"><i class="fa-fw fa fa-twitter"></i><span>Twitter</span></a></li>
+					</ul
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<hr>
 
 	<div class="container normal-pad">
 		<div class="row">
